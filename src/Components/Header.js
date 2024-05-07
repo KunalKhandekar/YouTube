@@ -19,9 +19,9 @@ const Header = () => {
             <header className="flex justify-between items-center px-3 py-3 shadow">
                 {/* HamBurger and Logo */}
                 <div className="flex gap-4 items-center sm:gap-2">
-                    <div className="cursor-pointer p-2 rounded-full hover:bg-[#58585828]" onClick={() => handleSideBar()}>
+                    <button className="cursor-pointer p-2 rounded-full hover:bg-[#58585828]" onClick={() => handleSideBar()}>
                         <GiHamburgerMenu className="text-2xl sm:text-xl" />
-                    </div>
+                    </button>
 
                     <div>
                         <img src={YouTube_logo} alt="Logo" className="w-28 sm:w-24" />

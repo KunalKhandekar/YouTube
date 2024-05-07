@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 
-const Topic_Container = () => {
+const TopicContainer = () => {
 
     const containerRef = useRef(null);
     const [isDragging, setIsDragging] = useState(false);
@@ -43,4 +43,4 @@ const Topic_Container = () => {
     );
 };
 
-export default Topic_Container;
+export default TopicContainer;

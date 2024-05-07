@@ -1,11 +1,9 @@
-import YouTube_logo from '../images/youtubr-light.png';
 import { HiOutlineNewspaper } from "react-icons/hi2";
 import { PiShoppingCartLight } from "react-icons/pi";
 import { PiCertificateLight } from "react-icons/pi";
 import { GiBabyfootPlayers } from "react-icons/gi";
 import { MdOutlinePodcasts } from "react-icons/md";
 import { PiFilmSlateLight } from "react-icons/pi";
-import { GiHamburgerMenu } from "react-icons/gi";
 import { SiYoutubegaming } from "react-icons/si";
 import { IoIosTrendingUp } from "react-icons/io";
 import { IoHomeOutline } from "react-icons/io5";
@@ -27,7 +25,7 @@ const Sidebar = () => {
         if (screenWidth >= 680) {
             dispatch(openSideBar());
         }
-    }, []);
+    }, [dispatch]);
 
     const handleSideBar = () => {
         dispatch(toggleSideBar());
@@ -35,7 +33,7 @@ const Sidebar = () => {
 
     return (
         <>
-            <div className={`hidden fixed top-0 left-0 w-full h-full bg-black opacity-50 z-10 ${showSideBar ? 'sm:block' : 'sm:hidden'}`} onClick={handleSideBar}></div>
+            <div className={`hidden fixed top-0 left-0 w-full h-full bg-black opacity-50 z-10 ${showSideBar ? 'sm:block' : 'sm:hidden'} transition-all`} onClick={handleSideBar}></div>
             <div className={`max-w-[210px] fixed max-h-screen h-[100vh] sm:z-20 sm:absolute ${showSideBar ? 'left-0' : 'left-[-220px]'} transition-all duration-300 bg-white border-r-2 border-[#1313130c]  overflow-y-auto`}>
 
                 <div className='py-3 px-3 font-sans border-b border-[#8c8c8c54] pt-[75px]'>

@@ -29,7 +29,7 @@ const TopicContainer = () => {
     return (
         <div
             ref={containerRef}
-            className='pb-3 text-base overflow-x-auto w-full whitespace-nowrap cursor-grab border-b border-[#4e4e4e3b]'
+            className='px-4 py-3 text-base overflow-x-auto w-full whitespace-nowrap cursor-grab'
             style={{ 'msOverflowStyle': 'none', 'scrollbarWidth': 'none' }}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
@@ -37,7 +37,7 @@ const TopicContainer = () => {
             onMouseLeave={handleMouseUp}
         >
             {CapsuleTopics.map((name, index) => (
-                <span key={index} className='inline-block mr-3 px-5 py-1 bg-[#8b8b8b2c] text-black rounded-xl select-none cursor-pointer hover:bg-[#8b8b8b87]'>{name}</span>
+                <span key={index} className='inline-block mr-3 px-5 py-1 bg-[#8b8b8b2c] dark:bg-[#4747478d] dark:hover:bg-[#474747fe] dark:text-white text-black rounded-xl select-none cursor-pointer hover:bg-[#8b8b8b87] sm:text-sm'>{name}</span>
             ))}
         </div>
     );

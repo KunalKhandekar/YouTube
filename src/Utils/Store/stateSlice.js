@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const stateSlice = createSlice({
     name : 'state',
     initialState : {
-        showSideBar : false
+        showSideBar : false,
+        darkMode : true
     },
     reducers : {
         toggleSideBar : (state) => {
@@ -11,9 +12,12 @@ const stateSlice = createSlice({
         },
         openSideBar : (state) => {
             state.showSideBar  =  true
+        },
+        toggleDarkMode : (state) => {
+            state.darkMode = !state.darkMode;
         }
     }
 });
 
-export const { toggleSideBar, openSideBar } = stateSlice.actions;
+export const { toggleSideBar, openSideBar, toggleDarkMode } = stateSlice.actions;
 export default stateSlice.reducer;

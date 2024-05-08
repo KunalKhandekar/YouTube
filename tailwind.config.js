@@ -5,11 +5,11 @@ module.exports = {
   ],
   theme: {
     screens: {
-      '2xl': { 'max': '1600px' },
+      '2xl': { 'max': '1450px' },
       'xl': { 'max': '1279px' },
       'lg': { 'max': '1100px' },
       'slg': { 'max': '920px' },
-      'mmd': { 'max': '810px' },
+      'mmd': { 'max': '790px' },
       'md': { 'max': '759px' },
       'sm': { 'max': '680px' },
       'ssm': { 'max': '590px' },
@@ -19,10 +19,11 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        'sans': ['Poppins', 'sans-serif'],
+        'sans': ['Roboto', 'sans-serif'],
       }
     }
   },
   plugins: [],
+  darkMode: 'class'
 }
 

@@ -4,7 +4,8 @@ const stateSlice = createSlice({
     name : 'state',
     initialState : {
         showSideBar : false,
-        darkMode : true
+        darkMode : true,
+        activeTopic : 'Home'
     },
     reducers : {
         toggleSideBar : (state) => {
@@ -15,9 +16,12 @@ const stateSlice = createSlice({
         },
         toggleDarkMode : (state) => {
             state.darkMode = !state.darkMode;
+        },
+        changeActiveTopic : (state, action) => {
+            state.activeTopic = action.payload;
         }
     }
 });
 
-export const { toggleSideBar, openSideBar, toggleDarkMode } = stateSlice.actions;
+export const { toggleSideBar, openSideBar, toggleDarkMode, changeActiveTopic } = stateSlice.actions;
 export default stateSlice.reducer;

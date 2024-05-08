@@ -3,7 +3,7 @@ import stateSlice from "./stateSlice";
 
 const appStore = configureStore({
    reducer : {
-    state : stateSlice
+    state : stateSlice,
    }
 });
 

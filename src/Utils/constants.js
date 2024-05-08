@@ -1,5 +1,8 @@
 export const API_Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNGNlNjJlZTUtODBjZS00YzNhLWE4OWItNjJmNWMyMjJiYzhiIiwidHlwZSI6ImFwaV90b2tlbiJ9.hpOMjZb3QwZEspRl6cpi1GY4roYYguNlaY6DO5N_G4o";
 
+// AIzaSyBiM4mVtA1F1rE-YWLj9wIbsITVa_s8DV4
+export const YOUTUBE_API = 'AIzaSyD3LGWALVqU_FqWYdghIgGwnyqu9onbraw';
+
 export const Channel_List = [
     {
         name: 'Sony SAB',

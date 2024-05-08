@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { YOUTUBE_API } from '../Utils/constants';
 
-const VideoCard = ({ video }) => {
+const VideoCard = ({ video, isTopic }) => {
     const [profile_pic, setProfile_Pic] = useState(null);
     const { channelId, thumbnails, title, channelTitle, publishedAt } = video?.snippet;
-    const { viewCount } = video.statistics;
-    const { duration } = video.contentDetails;
+    const [viewCount, setViewCount] = useState('');
+    const [duration, setDuration] = useState('');
 
     function formatDuration(duration) {
         const hours = parseInt(duration.match(/(\d+)H/)?.[1]) || 0;
@@ -43,7 +44,7 @@ const VideoCard = ({ video }) => {
     };
 
     const fetchVideo = async (id) => {
-        const data = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${id}&key=AIzaSyDMAjY5eRc2lq3YGsnr_uJ-PDlc5TwCqkA&hl=en`);
+        const data = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${id}&key=${YOUTUBE_API}&hl=en`);
         const json = await data.json();
         setProfile_Pic(json.items[0].snippet.thumbnails.high.url);
     };
@@ -51,6 +52,29 @@ const VideoCard = ({ video }) => {
     useEffect(() => {
         fetchVideo(channelId);
     }, [channelId]);
+
+    useEffect(() => {
+        const fetchTopicVideoDetails = async () => {
+            try {
+                const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${video.id.videoId||video.id}&key=${YOUTUBE_API}`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch video details');
+                }
+                const data = await response.json();
+                if (data.items.length > 0) {
+                    setViewCount(data.items[0].statistics.viewCount);
+                    setDuration(data.items[0].contentDetails.duration);
+                } else {
+                    throw new Error('Video details not found');
+                }
+            } catch (error) {
+                console.error('Error fetching video details:', error);
+            }
+        };
+    
+        fetchTopicVideoDetails();
+    }, [video]);
+    
 
     const viewCountFunction = (views) => {
         if (views >= 1000000) {
@@ -62,15 +86,12 @@ const VideoCard = ({ video }) => {
         };
     };
 
-    if (!profile_pic) return null;
-
-    console.log(video);
 
     return (
         <div className='pb-4 sm:pb-3'>
             <div className='relative'>
                 <div className='px-1.5 py-0.5 bg-[#1c1c1cd4] text-white rounded text-xs font-medium absolute bottom-1.5 right-1.5'>{formatDuration(duration)}</div>
-                <img src={thumbnails.maxres.url} alt="Video_Card" className='w-full h-full object-cover rounded-lg' />
+                <img src={thumbnails.medium.url} alt="Video_Card" className='w-full h-full object-cover rounded-lg' />
             </div>
 
             {/* Video Info */}
@@ -96,4 +117,4 @@ const VideoCard = ({ video }) => {
     )
 }
 
-export default VideoCard
+export default VideoCard;

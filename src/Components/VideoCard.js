@@ -70,7 +70,7 @@ const VideoCard = ({ video }) => {
         <div className='pb-4 sm:pb-3'>
             <div className='relative'>
                 <div className='px-1.5 py-0.5 bg-[#1c1c1cd4] text-white rounded text-xs font-medium absolute bottom-1.5 right-1.5'>{formatDuration(duration)}</div>
-                <img src={thumbnails.medium.url} alt="Video_Card" className='w-full h-full object-cover rounded-lg' />
+                <img src={thumbnails.maxres.url} alt="Video_Card" className='w-full h-full object-cover rounded-lg' />
             </div>
 
             {/* Video Info */}

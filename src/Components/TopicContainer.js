@@ -37,7 +37,7 @@ const TopicContainer = () => {
             onMouseLeave={handleMouseUp}
         >
             {CapsuleTopics.map((name, index) => (
-                <span key={index} className='inline-block mr-3 px-5 py-1 bg-[#8b8b8b2c] dark:bg-[#4747478d] dark:hover:bg-[#474747fe] dark:text-white text-black rounded-xl select-none cursor-pointer hover:bg-[#8b8b8b87] sm:text-sm'>{name}</span>
+                <span key={index} className='inline-block mr-3 px-5 py-1 bg-[#8b8b8b2c] dark:bg-[#4747478d] dark:hover:bg-[#474747fe] font-normal dark:text-white text-black rounded-xl select-none cursor-pointer hover:bg-[#8b8b8b87] text-sm'>{name}</span>
             ))}
         </div>
     );

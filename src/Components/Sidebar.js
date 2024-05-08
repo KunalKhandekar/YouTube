@@ -97,8 +97,8 @@ const Sidebar = () => {
                 <div className='relative'>
                     <h1 className='absolute top-0 px-4 bg-white dark:bg-neutral-900 py-2 w-full font-medium'>Subscriptions</h1>
                     <div className='py-3 px-3 font-sans pt-10'>
-                        {Channel_List.map((channel, index) => (
-                            <div key={index} className='flex gap-5 items-center justify-start text-lg font-normal dark:hover:bg-[#4747478d] hover:bg-[#18181815] px-3 py-1 rounded-lg cursor-pointer'>
+                        {Channel_List.map((channel) => (
+                            <div className=' flex gap-5 items-center justify-start text-lg font-normal dark:hover:bg-[#4747478d] hover:bg-[#18181815] px-3 py-1 rounded-lg cursor-pointer'>
                                 <img className='w-8 rounded-full' src={channel.link} alt="img_Channel" />
                                 <h1 className='w-full truncate'>{channel.name}</h1>
                             </div>

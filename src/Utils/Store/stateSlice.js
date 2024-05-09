@@ -5,7 +5,8 @@ const stateSlice = createSlice({
     initialState : {
         showSideBar : false,
         darkMode : true,
-        activeTopic : 'Home'
+        activeTopic : 'Home',
+        homeTopics : ['Home', 'All', 'TMKOC', 'Motivation', 'Computer Programming', 'Music', 'Cricket', 'Politics', 'Animated Films', 'Movies', 'Study', 'Gaming', 'Sports']
     },
     reducers : {
         toggleSideBar : (state) => {

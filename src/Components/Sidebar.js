@@ -31,13 +31,17 @@ const Sidebar = () => {
         dispatch(toggleSideBar());
     };
 
-    const handleItemClick = (item) => {
-        dispatch(changeActiveTopic(item))
+    const handleItemClick = (item , topic=item) => {
+        dispatch(changeActiveTopic(topic))
         setActiveItem(item);
+        const screenWidth = window.innerWidth;
+        if (screenWidth < 680) {
+            handleSideBar();
+        }
     };
 
-    const renderMenuItem = (icon, label) => (
-        <div className={`flex gap-5 items-center justify-start text-sm font-normal dark:hover:bg-[#4747478d] hover:bg-[#18181815] px-3 py-1 rounded-lg cursor-pointer ${activeItem === label ? 'dark:bg-[#ffffff] dark:text-black hover:bg-neutral-800 dark:hover:bg-white bg-neutral-800 text-white' : ''}`} onClick={() => handleItemClick(label)}>
+    const renderMenuItem = (icon, label, topic=label) => (
+        <div className={`flex gap-5 items-center justify-start text-sm font-normal dark:hover:bg-[#4747478d] hover:bg-[#18181815] px-3 py-1 rounded-lg cursor-pointer ${activeItem === topic ? 'dark:bg-[#ffffff] dark:text-black hover:bg-neutral-800 dark:hover:bg-white bg-neutral-800 text-white' : ''}`} onClick={() => handleItemClick(topic)}>
             {icon}
             <h1>{label}</h1>
         </div>
@@ -50,24 +54,24 @@ const Sidebar = () => {
 
                 <div className='py-3 px-3 font-sans border-b border-[#8c8c8c54] dark:border-[#cfcdcd6b] pt-[75px]'>
                     {renderMenuItem(<IoHomeOutline className='text-xl' />, 'Home')}
-                    {renderMenuItem(<IoIosTrendingUp className='text-xl' />, 'Trending')}
-                    {renderMenuItem(<PiShoppingCartLight className='text-xl' />, 'Shopping')}
-                    {renderMenuItem(<CiMusicNote1 className='text-xl' />, 'Music')}
-                    {renderMenuItem(<PiFilmSlateLight className='text-xl' />, 'Films')}
+                    {renderMenuItem(<IoIosTrendingUp className='text-xl' />, 'Trending' , 'trending videos')}
+                    {renderMenuItem(<PiShoppingCartLight className='text-xl' />, 'Shopping', 'Indian Shopping')}
+                    {renderMenuItem(<CiMusicNote1 className='text-xl' />, 'Music', 'trending songs in india')}
+                    {renderMenuItem(<PiFilmSlateLight className='text-xl' />, 'Films', 'trending movies in india')}
                     {renderMenuItem(<RiLiveLine className='text-xl' />, 'Live')}
                     {renderMenuItem(<SiYoutubegaming className='text-xl' />, 'Gaming')}
                     {renderMenuItem(<HiOutlineNewspaper className='text-xl' />, 'News')}
-                    {renderMenuItem(<GiBabyfootPlayers className='text-xl' />, 'Sports')}
+                    {renderMenuItem(<GiBabyfootPlayers className='text-xl' />, 'Sports', 'Indian Sports')}
                     {renderMenuItem(<PiCertificateLight className='text-xl' />, 'Courses')}
-                    {renderMenuItem(<GiClothes className='text-xl' />, 'Fashion')}
-                    {renderMenuItem(<MdOutlinePodcasts className='text-xl' />, 'Podcast')}
+                    {renderMenuItem(<GiClothes className='text-xl' />, 'Fashion', 'Fashion & Beauty in India')}
+                    {renderMenuItem(<MdOutlinePodcasts className='text-xl' />, 'Podcast', 'podcasts in india')}
                 </div>
 
                 <div className='relative'>
                     <h1 className='absolute top-0 px-4 bg-white dark:bg-neutral-900 py-2 w-full font-medium'>Subscriptions</h1>
                     <div className='py-3 px-3 font-sans pt-10'>
                         {Channel_List.map((channel) => (
-                            <div className=' flex gap-5 items-center justify-start text-sm font-normal dark:hover:bg-[#4747478d] hover:bg-[#18181815] px-3 py-1 rounded-lg cursor-pointer'>
+                            <div className={`flex gap-5 items-center justify-start text-sm font-normal dark:hover:bg-[#4747478d] hover:bg-[#18181815] px-3 py-1 rounded-lg cursor-pointer ${activeItem === channel.name ? 'dark:bg-[#ffffff] dark:text-black hover:bg-neutral-800 dark:hover:bg-white bg-neutral-800 text-white' : ''}`} onClick={() => handleItemClick(channel.name, channel.id)}>
                                 <img className='w-7 rounded-full' src={channel.link} alt="img_Channel" />
                                 <h1 className='w-full truncate'>{channel.name}</h1>
                             </div>

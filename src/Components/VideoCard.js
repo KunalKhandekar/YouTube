@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { YOUTUBE_API } from '../Utils/constants';
+import { useSelector } from 'react-redux';
 
-const VideoCard = ({ video, isTopic }) => {
+const VideoCard = ({ video }) => {
+    const activeTopic = useSelector(store => store.state.activeTopic);
     const [profile_pic, setProfile_Pic] = useState(null);
-    const { channelId, thumbnails, title, channelTitle, publishedAt } = video?.snippet;
+    const { channelId, title, channelTitle, publishedAt } = video?.snippet;
     const [viewCount, setViewCount] = useState('');
     const [duration, setDuration] = useState('');
 
+    const thumbnail = `https://i.ytimg.com/vi/${video.id.videoId || video.id}/maxresdefault.jpg`
+
     function formatDuration(duration) {
+        if (duration === 'P0D') return 'Live';
         const hours = parseInt(duration.match(/(\d+)H/)?.[1]) || 0;
         const minutes = parseInt(duration.match(/(\d+)M/)?.[1]) || 0;
         const seconds = parseInt(duration.match(/(\d+)S/)?.[1]) || 0;
@@ -16,7 +21,6 @@ const VideoCard = ({ video, isTopic }) => {
         if (hours > 0) formattedTime.push(String(hours).padStart(1, '0'));
         minutes === 0 ? formattedTime.push(String(minutes).padStart(2, '0')) : formattedTime.push(String(minutes).padStart(1, '0'));
         formattedTime.push(String(seconds).padStart(2, '0'));
-
         return formattedTime.join(':');
     };
 
@@ -44,9 +48,10 @@ const VideoCard = ({ video, isTopic }) => {
     };
 
     const fetchVideo = async (id) => {
-        const data = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${id}&key=${YOUTUBE_API}&hl=en`);
+        console.log(id);
+        const data = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${id}&key=${YOUTUBE_API()}&hl=en`);
         const json = await data.json();
-        setProfile_Pic(json.items[0].snippet.thumbnails.high.url);
+        setProfile_Pic(json.items[0].snippet.thumbnails.default.url || json.items[0].snippet.thumbnails.medium.url);
     };
 
     useEffect(() => {
@@ -56,7 +61,7 @@ const VideoCard = ({ video, isTopic }) => {
     useEffect(() => {
         const fetchTopicVideoDetails = async () => {
             try {
-                const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${video.id.videoId||video.id}&key=${YOUTUBE_API}`);
+                const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${video.id.videoId||video.id}&key=${YOUTUBE_API()}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch video details');
                 }
@@ -64,6 +69,7 @@ const VideoCard = ({ video, isTopic }) => {
                 if (data.items.length > 0) {
                     setViewCount(data.items[0].statistics.viewCount);
                     setDuration(data.items[0].contentDetails.duration);
+                    if (activeTopic == 'Live') console.log(data.items[0].contentDetails.duration);
                 } else {
                     throw new Error('Video details not found');
                 }
@@ -77,7 +83,9 @@ const VideoCard = ({ video, isTopic }) => {
     
 
     const viewCountFunction = (views) => {
-        if (views >= 1000000) {
+        if (views === undefined) {
+            return '0'
+        } else if (views >= 1000000) {
             return (views % 1000000 === 0 ? views / 1000000 : Math.round((views / 1000000) * 10) / 10) + 'M';
         } else if (views >= 1000) {
             return (views % 1000 === 0 ? views / 1000 : Math.round((views / 1000) * 10) / 10) + 'K';
@@ -86,12 +94,11 @@ const VideoCard = ({ video, isTopic }) => {
         };
     };
 
-
     return (
         <div className='pb-4 sm:pb-3'>
             <div className='relative'>
-                <div className='px-1.5 py-0.5 bg-[#1c1c1cd4] text-white rounded text-xs font-medium absolute bottom-1.5 right-1.5'>{formatDuration(duration)}</div>
-                <img src={thumbnails.medium.url} alt="Video_Card" className='w-full h-full object-cover rounded-lg' />
+                <div className={`px-1.5 py-0.5 ${duration != 'P0D' ? 'bg-[#1c1c1cd4]' : 'bg-[#fc1d1dd4]'} text-white rounded text-xs font-medium absolute bottom-1.5 right-1.5`}>{formatDuration(duration)}</div>
+                <img src={thumbnail} alt="Video_Card" className='w-full h-full object-cover rounded-lg' />
             </div>
 
             {/* Video Info */}

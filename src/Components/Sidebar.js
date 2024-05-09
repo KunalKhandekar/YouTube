@@ -58,7 +58,7 @@ const Sidebar = () => {
                     {renderMenuItem(<IoIosTrendingUp className='text-xl' />, 'Trending' , 'trending videos')}
                     {renderMenuItem(<PiShoppingCartLight className='text-xl' />, 'Shopping', 'Indian Shopping')}
                     {renderMenuItem(<CiMusicNote1 className='text-xl' />, 'Music', 'trending songs in india')}
-                    {renderMenuItem(<PiFilmSlateLight className='text-xl' />, 'Films', 'trending movies in india')}
+                    {renderMenuItem(<PiFilmSlateLight className='text-xl' />, 'Films', 'trending movies india')}
                     {renderMenuItem(<RiLiveLine className='text-xl' />, 'Live')}
                     {renderMenuItem(<SiYoutubegaming className='text-xl' />, 'Gaming')}
                     {renderMenuItem(<HiOutlineNewspaper className='text-xl' />, 'News')}

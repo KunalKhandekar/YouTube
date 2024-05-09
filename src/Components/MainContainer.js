@@ -28,7 +28,7 @@ const MainContainer = () => {
 
       {/* Conditionally render TopicContainer if activeTopic is included in CapsuleTopics */}
       {isTopicActive && <TopicContainer />}
-      <div id="video-container">
+      <div id={!isTopicActive ? "video-container" : ''}>
         <VideoContainer />
       </div>
 

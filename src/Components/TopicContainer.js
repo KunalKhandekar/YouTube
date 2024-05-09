@@ -47,7 +47,7 @@ const TopicContainer = () => {
             {CapsuleTopics.slice(1).map((name, index) => (
                 <span
                     key={index}
-                    className={`inline-block mr-3 px-5 py-1 bg-[#8b8b8b2c] dark:bg-[#4747478d] dark:hover:bg-[#474747fe] font-normal text-black rounded-xl select-none cursor-pointer hover:bg-[#8b8b8b87] text-sm ${activeItem === index + 1 ? 'dark:bg-[#fff] dark:text-black bg-black text-white' : 'dark:text-white'}`}
+                    className={`inline-block mr-3 px-5 py-1 bg-[#8b8b8b2c] dark:bg-[#4747478d] dark:hover:bg-[#474747fe] font-normal text-black rounded-xl select-none cursor-pointer hover:bg-[#8b8b8b87] text-sm ${activeItem === index + 1 ? 'dark:bg-[#ffffff] dark:text-black hover:bg-neutral-800 dark:hover:bg-white bg-neutral-800 text-white' : 'dark:text-white'}`}
                     onClick={() => handleItemClick(index + 1, name)}
                 >
                     {name}

@@ -26,7 +26,7 @@ const Header = () => {
                 {/* HamBurger and Logo */}
                 <div className="flex gap-4 items-center sm:gap-2">
                     <button className="cursor-pointer p-2 rounded-full" onClick={() => handleSideBar()}>
-                        <GiHamburgerMenu className="text-2xl sm:text-xl" />
+                        <GiHamburgerMenu className="text-2xl" />
                     </button>
 
                     <div>

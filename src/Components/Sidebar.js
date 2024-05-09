@@ -17,6 +17,7 @@ import { Channel_List } from '../Utils/constants';
 
 const Sidebar = () => {
     const showSideBar = useSelector(store => store.state.showSideBar);
+    
     const dispatch = useDispatch();
     const [activeItem, setActiveItem] = useState('Home');
 
@@ -37,7 +38,7 @@ const Sidebar = () => {
         const screenWidth = window.innerWidth;
         if (screenWidth < 680) {
             handleSideBar();
-        }
+        };
     };
 
     const renderMenuItem = (icon, label, topic=label) => (

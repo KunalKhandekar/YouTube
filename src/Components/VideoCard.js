@@ -48,7 +48,6 @@ const VideoCard = ({ video }) => {
     };
 
     const fetchVideo = async (id) => {
-        console.log(id);
         const data = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${id}&key=${YOUTUBE_API()}&hl=en`);
         const json = await data.json();
         setProfile_Pic(json.items[0].snippet.thumbnails.default.url || json.items[0].snippet.thumbnails.medium.url);
@@ -69,7 +68,6 @@ const VideoCard = ({ video }) => {
                 if (data.items.length > 0) {
                     setViewCount(data.items[0].statistics.viewCount);
                     setDuration(data.items[0].contentDetails.duration);
-                    if (activeTopic == 'Live') console.log(data.items[0].contentDetails.duration);
                 } else {
                     throw new Error('Video details not found');
                 }

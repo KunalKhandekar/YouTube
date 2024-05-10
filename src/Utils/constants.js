@@ -16,6 +16,8 @@ function getRandomAPIKey() {
 
 export const YOUTUBE_API = getRandomAPIKey;
 
+export const SUGGESTION_API = 'https://proxy.cors.sh/http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=';
+
 export const Channel_List = [
     {
         name: 'Sony SAB',

@@ -15,9 +15,11 @@ const VideoContainer = () => {
 
     const fetchVideo = async () => {
         try {
-            console.log(activeTopic);
             let apiUrl = '';
-            if (activeTopic.length === 24) {
+            if (activeTopic.includes('search')) {
+                const reconstructTopic = activeTopic.replace('search','');
+                apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${reconstructTopic}&type=video&maxResults=8&key=${YOUTUBE_API()}`
+            } else if (activeTopic.length === 24) {
                 apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API()}&order=date&part=snippet&channelId=${activeTopic}&type=video&maxResults=8`
             } else if (activeTopic === 'Home' || activeTopic === 'All') {
                 apiUrl = `https://www.googleapis.com/youtube/v3/videos?chart=mostPopular&part=snippet,contentDetails,statistics&regionCode=IN&maxResults=12&key=${YOUTUBE_API()}&hl=en`;

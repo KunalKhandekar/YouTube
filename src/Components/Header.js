@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 
 const Header = () => {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const darkMode = useSelector(store => store.state.darkMode);
     const [input, setInput] = useState('');
@@ -33,13 +33,13 @@ const Header = () => {
     const handleSearch = (e) => {
         e.preventDefault();
         dispatch(changeActiveTopic(input + 'search'));
-        // navigate('/')
+        navigate('/')
         setShowSuggestion(false);
     };
 
     const handleSuggestionClick = (query) => {
         dispatch(changeActiveTopic(query + 'search'));
-        // navigate('/')
+        navigate('/')
         setInput(query);
         setShowSuggestion(false);
     };

@@ -16,6 +16,9 @@ const stateSlice = createSlice({
         openSideBar : (state) => {
             state.showSideBar  =  true
         },
+        closeSideBar : (state) => {
+            state.showSideBar  =  false
+        },
         toggleDarkMode : (state) => {
             state.darkMode = !state.darkMode;
         },
@@ -28,5 +31,5 @@ const stateSlice = createSlice({
     }
 });
 
-export const { toggleSideBar, openSideBar, toggleDarkMode, changeActiveTopic, changeSideBarItem } = stateSlice.actions;
+export const { toggleSideBar, openSideBar, closeSideBar, toggleDarkMode, changeActiveTopic, changeSideBarItem } = stateSlice.actions;
 export default stateSlice.reducer;

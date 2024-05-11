@@ -14,8 +14,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { changeActiveTopic, openSideBar, toggleSideBar } from '../Utils/Store/stateSlice';
 import { Channel_List } from '../Utils/constants';
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
+    const navigate = useNavigate();
     const showSideBar = useSelector(store => store.state.showSideBar);
     
     const dispatch = useDispatch();
@@ -23,9 +25,9 @@ const Sidebar = () => {
 
     useEffect(() => {
         const screenWidth = window.innerWidth;
-        if (screenWidth >= 680) {
+        if (screenWidth >= 680 && window.location.pathname !== '/watch' ) {
             dispatch(openSideBar());
-        }
+        };
     }, [dispatch]);
 
     const handleSideBar = () => {
@@ -33,6 +35,7 @@ const Sidebar = () => {
     };
 
     const handleItemClick = (item , topic=item) => {
+        navigate('/')
         dispatch(changeActiveTopic(topic))
         setActiveItem(item);
         const screenWidth = window.innerWidth;
@@ -50,8 +53,8 @@ const Sidebar = () => {
 
     return (
         <>
-            <div className={`hidden fixed top-0 left-0 w-full h-full bg-black opacity-50 z-10 ${showSideBar ? 'sm:block' : 'sm:hidden'} transition-all`} onClick={handleSideBar}></div>
-            <div className={`max-w-[210px] absolute max-h-screen h-[100vh] sm:z-20 sm:absolute ${showSideBar ? 'left-0' : 'left-[-220px]'} transition-all duration-300 bg-white dark:bg-neutral-900 dark:text-[#ffffff] dark:border-[#cfcdcd3e] border-r border-[#1313130c]  overflow-y-auto`}>
+            <div className={` ${window.location.pathname === '/watch' && showSideBar ? 'block' : 'hidden'} fixed top-0 left-0 w-full h-full bg-black opacity-50 z-10 ${showSideBar ? 'sm:block' : 'sm:hidden'} transition-all`} onClick={handleSideBar}></div>
+            <div className={`max-w-[210px] absolute max-h-screen h-[100vh] z-20 sm:absolute ${showSideBar ? 'left-0' : 'left-[-220px]'} transition-all duration-300 bg-white dark:bg-neutral-900 dark:text-[#ffffff] dark:border-[#cfcdcd3e] border-r border-[#1313130c]  overflow-y-auto`}>
 
                 <div className='py-3 px-3 font-sans border-b border-[#8c8c8c54] dark:border-[#cfcdcd6b] pt-[75px]'>
                     {renderMenuItem(<IoHomeOutline className='text-xl' />, 'Home')}

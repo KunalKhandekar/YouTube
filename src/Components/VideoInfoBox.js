@@ -65,7 +65,7 @@ const VideoInfoBox = ({ Id }) => {
     };
 
     return (
-        <div className='py-2 px-2 w-full dark:text-white text-black transition-all '>
+        <div className='py-2 px-2 w-full dark:text-white text-black transition-all mmd:pt-[56.5%]'>
             <h1 className='font-bold text-xl sm:text-sm line-clamp-2'>{title}</h1>
             {!showDescription ?
 

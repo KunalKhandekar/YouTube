@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import VideoCard from './VideoCard';
 import { YOUTUBE_API } from '../Utils/constants';
 import { useSelector } from 'react-redux';
+import ShimmerUI from './ShimmerUI';
 
 const VideoContainer = () => {
     const activeTopic = useSelector(store => store.state.activeTopic);
     const [videos, setVideos] = useState(null);
+    const [isLoading, setIsLoading] = useState(true); // Add loading state
 
     const currentDate = new Date();
     const [startDateStr, endDateStr] = [
@@ -15,6 +17,7 @@ const VideoContainer = () => {
 
     const fetchVideo = async () => {
         try {
+            setIsLoading(true); // Set loading to true before fetching videos
             let apiUrl = '';
             if (activeTopic.includes('search')) {
                 const reconstructTopic = activeTopic.replace('search','');
@@ -37,6 +40,8 @@ const VideoContainer = () => {
             setVideos(json?.items);
         } catch (error) {
             console.error('Error fetching videos:', error);
+        } finally {
+            setIsLoading(false); // Set loading to false after fetching videos
         }
     };
 
@@ -44,7 +49,7 @@ const VideoContainer = () => {
         fetchVideo();
     }, [activeTopic]);
 
-    if (!videos) return <div className='text-white'>Loading...</div>;
+    if (isLoading || !videos) return <ShimmerUI />; // Show shimmer UI while loading or if videos are not yet fetched
 
     return (
         <div className='grid grid-cols-4 gap-3 justify-center items-start p-3 2xl:grid-cols-3 lg:grid-cols-2 mmd:grid-cols-1 sm:grid-cols-2 ssm:grid-cols-1'>

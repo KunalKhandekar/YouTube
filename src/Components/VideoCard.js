@@ -9,11 +9,9 @@ import { formatDuration, timeAgo, viewCountFunction } from '../Utils/Functions';
 const VideoCard = ({ video, horizontal }) => {
     const dispatch = useDispatch();
     const [profile_pic, setProfile_Pic] = useState(null);
-    const { channelId, title, channelTitle, publishedAt } = video?.snippet;
+    const { thumbnails, channelId, title, channelTitle, publishedAt } = video?.snippet;
     const [viewCount, setViewCount] = useState('');
-    const [duration, setDuration] = useState('');
-
-    const thumbnail = `https://i.ytimg.com/vi/${video.id.videoId || video.id}/maxresdefault.jpg`;
+    const [duration, setDuration] = useState('');    
 
     const fetchProfilePic = async (id) => {
         const data = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${id}&key=${YOUTUBE_API()}&hl=en`);
@@ -55,7 +53,7 @@ const VideoCard = ({ video, horizontal }) => {
         <Link to={`/watch?v=${video.id.videoId || video.id}&chnl=${channelId}`} className={`pb-4 sm:pb-3 ${horizontal ? 'flex gap-3' : ''}`} onClick={closeSideBarFunc}>
             <div className={`relative ${horizontal ? 'w-5/12 slg:w-8/12' : ''}`}>
                 <div className={`px-1.5 py-0.5 ${duration != 'P0D' ? 'bg-[#1c1c1cd4]' : 'bg-[#fc1d1dd4]'} text-white rounded text-xs font-medium absolute bottom-1.5 right-1.5`}>{formatDuration(duration)}</div>
-                <img src={thumbnail} alt="Video_Card" className='w-full h-full object-cover rounded-lg' />
+                <img src={(thumbnails && thumbnails.maxres && thumbnails.maxres.url) || (thumbnails && thumbnails.medium && thumbnails.medium.url)} alt="Video_Card" className='w-full h-full object-cover rounded-lg' />
             </div>
 
             {/* Video Info */}

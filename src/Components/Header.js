@@ -24,6 +24,7 @@ const Header = () => {
 
     const handleSideBar = () => {
         dispatch(toggleSideBar());
+        window.scrollTo(0,0)
     };
 
     const handleMode = () => {
@@ -75,7 +76,7 @@ const Header = () => {
     };
 
     return (
-        <div className='w-full absolute top-0 z-30 bg-white dark:bg-neutral-900 dark:text-white'>
+        <div className='w-full fixed top-0 z-30 bg-white dark:bg-neutral-900 dark:text-white'>
             {!SBForSmallDevice ? (<div className="flex justify-between items-center px-3 py-3 shadow border-b dark:border-[#cfcdcd3e]">
                 {/* HamBurger and Logo */}
                 <div className="flex gap-4 items-center sm:gap-2 justify-between">

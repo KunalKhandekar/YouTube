@@ -7,7 +7,7 @@ const WatchVideoContainer = ({ Id }) => {
     useEffect(() => {
         const handleScroll = () => {
             const scrollPosition = window.scrollY;
-            const shouldBeFixed = scrollPosition > 0; // Change this threshold as needed
+            const shouldBeFixed = scrollPosition > 1; // Change this threshold as needed
             setIsFixed(shouldBeFixed);
         };
 

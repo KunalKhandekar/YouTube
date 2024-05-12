@@ -8,17 +8,20 @@ import VideoInfoBox from '../Components/VideoInfoBox';
 const WatchPage = () => {
   const [search] = useSearchParams();
   const videoID = search.get('v');
+  const channelId = search.get('chnl');
+
+  console.log(channelId);
   
   return (
-    <div className='pt-[68px] px-2 min-h-screen dark:bg-black bg-white sm:px-0 sm:pt-[65px]'>
-      <div className='w-full flex gap-3 sm:flex-col'>
+    <div className='pt-[68px] px-2 mmd:px-0 min-h-screen dark:bg-black bg-white sm:px-0 sm:pt-[65px]'>
+      <div className='w-full flex gap-3 mmd:flex-col'>
 
-        <div className='w-8/12 sm:w-full'>
+        <div className='w-8/12 mmd:w-full'>
           <WatchVideoContainer Id={videoID} />
           <VideoInfoBox Id={videoID}/>
         </div>
 
-        <VidoeSuggestion />
+        <VidoeSuggestion channelId={channelId} />
       </div>
     </div>
   )

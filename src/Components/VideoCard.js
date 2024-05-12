@@ -6,7 +6,7 @@ import { closeSideBar } from '../Utils/Store/stateSlice';
 import { formatDuration, timeAgo, viewCountFunction } from '../Utils/Functions';
 
 
-const VideoCard = ({ video }) => {
+const VideoCard = ({ video, horizontal }) => {
     const dispatch = useDispatch();
     const [profile_pic, setProfile_Pic] = useState(null);
     const { channelId, title, channelTitle, publishedAt } = video?.snippet;
@@ -28,7 +28,7 @@ const VideoCard = ({ video }) => {
     useEffect(() => {
         const fetchTopicVideoDetails = async () => {
             try {
-                const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${video.id.videoId||video.id}&key=${YOUTUBE_API()}`);
+                const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${video.id.videoId || video.id}&key=${YOUTUBE_API()}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch video details');
                 }
@@ -43,24 +43,24 @@ const VideoCard = ({ video }) => {
                 console.error('Error fetching video details:', error);
             }
         };
-    
+
         fetchTopicVideoDetails();
     }, [video]);
-    
+
     const closeSideBarFunc = () => {
         dispatch(closeSideBar());
     };
 
     return (
-        <Link to={`/watch?v=${video.id.videoId||video.id}`} className='pb-4 sm:pb-3' onClick={closeSideBarFunc}>
-            <div className='relative'>
+        <Link to={`/watch?v=${video.id.videoId || video.id}&chnl=${channelId}`} className={`pb-4 sm:pb-3 ${horizontal ? 'flex gap-3' : ''}`} onClick={closeSideBarFunc}>
+            <div className={`relative ${horizontal ? 'w-5/12 slg:w-8/12' : ''}`}>
                 <div className={`px-1.5 py-0.5 ${duration != 'P0D' ? 'bg-[#1c1c1cd4]' : 'bg-[#fc1d1dd4]'} text-white rounded text-xs font-medium absolute bottom-1.5 right-1.5`}>{formatDuration(duration)}</div>
                 <img src={thumbnail} alt="Video_Card" className='w-full h-full object-cover rounded-lg' />
             </div>
 
             {/* Video Info */}
-            <div className='flex gap-2 pt-2 mmd:gap-4 mmd:pt-3 sm:pt-2 sm:gap-2'>
-                <div className='w-10 2xl:w-12 lg:w-14 mmd:w-20 sm:w-12'>
+            <div className={`flex gap-2 pt-2 mmd:gap-4 mmd:pt-3 sm:pt-2 sm:gap-2 ${horizontal ? 'w-7/12' : ''}`}>
+                <div className={`w-10 2xl:w-12 lg:w-14 mmd:w-20 sm:w-12 ${horizontal ? 'hidden' : ''} `}>
                     <img src={profile_pic} alt="Channel_Logo" className='w-full rounded-full' />
                 </div>
 

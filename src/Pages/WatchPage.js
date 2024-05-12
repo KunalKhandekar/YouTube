@@ -21,7 +21,7 @@ const WatchPage = () => {
           <VideoInfoBox Id={videoID}/>
         </div>
 
-        <VidoeSuggestion channelId={channelId} />
+        <VidoeSuggestion channelId={channelId} videoID={videoID}/>
       </div>
     </div>
   )

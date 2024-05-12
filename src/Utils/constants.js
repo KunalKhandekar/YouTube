@@ -2,7 +2,7 @@ export const API_Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiN
 
 function getRandomAPIKey() {
     const apiKeys = [
-        'AIzaSyBiM4mVtA1F1rE-YWLj9wIbsITVa_s8DV4'
+        'AIzaSyBFCPK70dOHsmbaOFbAKQn9lh4aRWHV2eQ'
     ];
     return apiKeys[Math.floor(Math.random() * apiKeys.length)];
 }

@@ -4,6 +4,7 @@ import WatchVideoContainer from '../Components/WatchVideoContainer';
 import VidoeSuggestion from '../Components/VidoeSuggestion';
 import VideoInfoBox from '../Components/VideoInfoBox';
 import LoadingScreen from '../Components/LoadingScreen'; // Import your loading screen component
+import CommentSection from '../Components/CommentSection';
 
 const WatchPage = () => {
   const [search] = useSearchParams();
@@ -35,6 +36,7 @@ const WatchPage = () => {
           <div className='w-8/12 mmd:w-full'>
             <WatchVideoContainer Id={videoID} />
             <VideoInfoBox Id={videoID}/>
+            <CommentSection videoID={videoID}/>
           </div>
 
           <VidoeSuggestion channelId={channelId} videoID={videoID}/>

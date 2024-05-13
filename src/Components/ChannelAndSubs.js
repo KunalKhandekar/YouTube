@@ -22,7 +22,7 @@ const ChannelAndSubs = ({ profile, name, likes, subs }) => {
                     {/* channel info */}
                     <div div className='flex gap-5 items-center lg:justify-between' >
                         <div className='flex gap-3 items-center'>
-                            <img src={profile} className='w-10 rounded-full' alt="channel_logo" />
+                            <img src={profile} className='w-10 rounded-full' alt=" " />
 
                             <div className=''>
                                 <h1 className='text-lg font-medium sm:text-sm truncate'>{name}</h1>

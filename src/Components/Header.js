@@ -56,7 +56,7 @@ const Header = () => {
     useEffect(() => {
         let timer;
         if (input !== '') {
-            timer = setTimeout(() => getSuggestions(input), 200);
+            timer = setTimeout(() => getSuggestions(input), 20);
         }
 
         return () => {

@@ -11,7 +11,7 @@ import { Channel_List } from '../Utils/constants';
 import { SiYoutubegaming } from "react-icons/si";
 import { IoIosTrendingUp } from "react-icons/io";
 import { IoHomeOutline } from "react-icons/io5";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CiMusicNote1 } from "react-icons/ci";
 import { RiLiveLine } from "react-icons/ri";
 import { GiClothes } from "react-icons/gi";
@@ -80,9 +80,9 @@ const Sidebar = () => {
                 </div>
 
                 {/* Subscriptions */}
-                <div className='relative'>
-                    <h1 className='absolute top-0 px-4 bg-white dark:bg-neutral-900 py-2 w-full font-medium'>Subscriptions</h1>
-                    <div className='py-3 px-3 font-sans pt-10'>
+                <div className='relative border-b border-[#8c8c8c54] dark:border-[#cfcdcd6b]'>
+                    <h1 className='absolute top-0 px-4 bg-white  dark:bg-neutral-900 py-2 pb-0 w-full font-medium'>Subscriptions</h1>
+                    <div className='py-2 px-3 font-sans pt-10'>
                         {Channel_List.map((channel) => (
                             <div className={`flex gap-5 items-center justify-start text-sm font-normal dark:hover:bg-[#4747478d] hover:bg-[#18181815] px-3 py-1 rounded-lg cursor-pointer ${activeItem === channel.name ? 'dark:bg-[#ffffff] dark:text-black hover:bg-neutral-800 dark:hover:bg-white bg-neutral-800 text-white' : ''}`} onClick={() => handleItemClick(channel.name, channel.id)}>
                                 <img className='w-7 rounded-full' src={channel.link} alt="img_Channel" />
@@ -91,6 +91,15 @@ const Sidebar = () => {
                         ))}
                     </div>
                 </div>
+
+                <Link to={'https://github.com/KunalKhandekar'} target='_blank' rel='noopener noreferrer' className='flex items-start flex-col px-4 bg-white dark:bg-neutral-900 py-0 w-full font-medium'>
+                        <h1 className='py-1.5'>Developed By</h1>
+                        <div className='flex gap-2 items-center pb-2'>
+                            <img src="https://avatars.githubusercontent.com/u/134169718?v=4" alt="profile_pic" className='w-8 rounded-full'/>
+                            <p className='font-normal'>KunalKhandekar</p>
+                        </div>
+                </Link>
+                
 
             </div>
         </>

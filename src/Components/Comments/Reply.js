@@ -7,7 +7,6 @@ const Reply = ({ showReplies, toastNotification, data }) => {
 
     const { authorProfileImageUrl, authorDisplayName, likeCount, publishedAt, textDisplay } = data?.snippet;
 
-    console.log(data);
     return (
         <div className={`${showReplies ? 'block' : 'hidden'} pl-2 transition-all mmd:pl-0`}>
 

@@ -35,7 +35,6 @@ const VideoContainer = () => {
                 apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(activeTopic)}&publishedAfter=${startDateStr}&publishedBefore=${endDateStr}&type=video&maxResults=20&key=${YOUTUBE_API()}&pageToken=${token}`;
             }
 
-            console.log(apiUrl);
             const data = await fetch(apiUrl);
             if (!data.ok) {
                 throw new Error('Failed to fetch videos');

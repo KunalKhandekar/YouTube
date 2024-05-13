@@ -28,7 +28,7 @@ const CommentThread = ({ data }) => {
     const imageUrl = imageError ? 'https://yt3.ggpht.com/ytc/AIdro_nDaJquE2fHtM0JbOi8j1CxndMouP8vSkhdEgD8I5Y=s48-c-k-c0x00ffffff-no-rj' : authorProfileImageUrl;
 
     return (
-        <div className={`px-3 flex gap-3 pt-5`}>
+        <div className={`px-3 flex gap-3 pt-5 overflow-hidden`}>
             <div className={`w-10 2xl:w-12 lg:w-14 sm:w-12`}>
                 <img src={imageUrl} alt="" className='w-full rounded-full' onError={handleImageError} />
             </div>

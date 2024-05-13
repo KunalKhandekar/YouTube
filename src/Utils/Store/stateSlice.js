@@ -8,7 +8,8 @@ const stateSlice = createSlice({
         activeTopic : 'Home',
         sideBarItem : 'Home',
         homeTopics : ['Home', 'All', 'TMKOC', 'Motivation', 'Computer Programming', 'Music', 'Cricket', 'Politics', 'Animated Films', 'Movies', 'Study', 'Gaming', 'Sports'],
-        token : ''
+        token : '',
+        smallDeviceComments : false
     },
     reducers : {
         toggleSideBar : (state) => {
@@ -32,9 +33,12 @@ const stateSlice = createSlice({
         changeToken : (state, action) => {
             state.token = action.payload;
         },
+        setSmallDeviceComments : (state) => {
+            state.smallDeviceComments = !state.smallDeviceComments;
+        },
 
     }
 });
 
-export const { toggleSideBar, openSideBar, closeSideBar, toggleDarkMode, changeActiveTopic, changeSideBarItem, changeToken } = stateSlice.actions;
+export const { toggleSideBar, openSideBar, closeSideBar, toggleDarkMode, changeActiveTopic, changeSideBarItem, changeToken, setSmallDeviceComments } = stateSlice.actions;
 export default stateSlice.reducer;

@@ -1,4 +1,4 @@
-import { timeAgo, viewCountFunction } from '../../Utils/Functions';
+import { timeAgo, countFunction } from '../../Utils/Functions';
 import { AiOutlineDislike } from "react-icons/ai";
 import { AiOutlineLike } from "react-icons/ai";
 import React from 'react';
@@ -23,7 +23,7 @@ const Reply = ({ showReplies, toastNotification, data }) => {
                     <p className='text-sm font-normal dark:text-white pt-0.5' dangerouslySetInnerHTML={{ __html: textDisplay }} ></p>
 
                     <div className='flex gap-2 py-2'>
-                        <p className='flex gap-0.5'><AiOutlineLike className='text-xl cursor-pointer' onClick={toastNotification} /> <span className='text-xs flex items-end'>{viewCountFunction(likeCount)}</span></p>
+                        <p className='flex gap-0.5'><AiOutlineLike className='text-xl cursor-pointer' onClick={toastNotification} /> <span className='text-xs flex items-end'>{countFunction(likeCount)}</span></p>
                         <AiOutlineDislike className='text-xl cursor-pointer' onClick={toastNotification} />
                     </div>
                 </div>

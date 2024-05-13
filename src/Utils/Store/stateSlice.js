@@ -1,44 +1,54 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// Creating a slice of state for managing application state
 const stateSlice = createSlice({
-    name : 'state',
-    initialState : {
-        showSideBar : false,
-        darkMode : true,
-        activeTopic : 'Home',
-        sideBarItem : 'Home',
-        homeTopics : ['Home', 'All', 'TMKOC', 'Motivation', 'Computer Programming', 'Music', 'Cricket', 'Politics', 'Animated Films', 'Movies', 'Study', 'Gaming', 'Sports'],
-        token : '',
-        smallDeviceComments : false
+    name: 'state', // Name of the slice
+    initialState: {
+        // Initial state values
+        showSideBar: false,
+        darkMode: true,
+        activeTopic: 'Home',
+        sideBarItem: 'Home',
+        homeTopics: ['Home', 'All', 'TMKOC', 'Motivation', 'Computer Programming', 'Music', 'Cricket', 'Politics', 'Animated Films', 'Movies', 'Study', 'Gaming', 'Sports'],
+        token: '',
+        smallDeviceComments: false
     },
-    reducers : {
-        toggleSideBar : (state) => {
+    reducers: {
+        // Reducer function to toggle the sidebar visibility
+        toggleSideBar: (state) => {
             state.showSideBar = !state.showSideBar;
         },
-        openSideBar : (state) => {
-            state.showSideBar  =  true
+        // Reducer function to open the sidebar
+        openSideBar: (state) => {
+            state.showSideBar = true;
         },
-        closeSideBar : (state) => {
-            state.showSideBar  =  false
+        // Reducer function to close the sidebar
+        closeSideBar: (state) => {
+            state.showSideBar = false;
         },
-        toggleDarkMode : (state) => {
+        // Reducer function to toggle dark mode
+        toggleDarkMode: (state) => {
             state.darkMode = !state.darkMode;
         },
-        changeActiveTopic : (state, action) => {
+        // Reducer function to change active topic
+        changeActiveTopic: (state, action) => {
             state.activeTopic = action.payload;
         },
-        changeSideBarItem : (state, action) => {
+        // Reducer function to change sidebar item
+        changeSideBarItem: (state, action) => {
             state.sideBarItem = action.payload;
         },
-        changeToken : (state, action) => {
+        // Reducer function to change token
+        changeToken: (state, action) => {
             state.token = action.payload;
         },
-        setSmallDeviceComments : (state) => {
+        // Reducer function to toggle small device comments
+        setSmallDeviceComments: (state) => {
             state.smallDeviceComments = !state.smallDeviceComments;
         },
-
     }
 });
 
+// Exporting action creators and reducer
 export const { toggleSideBar, openSideBar, closeSideBar, toggleDarkMode, changeActiveTopic, changeSideBarItem, changeToken, setSmallDeviceComments } = stateSlice.actions;
 export default stateSlice.reducer;

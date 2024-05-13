@@ -1,19 +1,19 @@
-import VideoContainer from '../WatchSection/VideoContainer';
+import VideoContainer from './VideoContainer';
 import TopicContainer from './TopicContainer';
 import { useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
 
 const MainContainer = () => {
+  // Selectors
   const CapsuleTopics = useSelector(store => store.state.homeTopics);
   const showSideBar = useSelector(store => store.state.showSideBar);
   const activeTopic = useSelector(store => store.state.activeTopic);
-  const token = useSelector(store => store.state.token);
 
   // Check if activeTopic is included in CapsuleTopics array
   const isTopicActive = CapsuleTopics.includes(activeTopic);
 
+  // Effect to scroll to the top of VideoContainer when activeTopic changes
   useEffect(() => {
-    // Scroll to the top of the VideoContainer when activeTopic changes
     const scrollToTop = () => {
       const videoContainer = document.getElementById('video-container');
       if (videoContainer) {

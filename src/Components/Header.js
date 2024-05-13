@@ -21,15 +21,18 @@ const Header = () => {
     const suggestionTimeout = useRef(null);
     const [SBForSmallDevice, setSBForSmallDevice] = useState(false);
 
+    // Function to handle sidebar toggling
     const handleSideBar = () => {
         dispatch(toggleSideBar());
         window.scrollTo(0,0)
     };
 
+    // Function to toggle dark mode
     const handleMode = () => {
         dispatch(toggleDarkMode());
     };
 
+    // Function to handle search submission
     const handleSearch = (e) => {
         e.preventDefault();
         dispatch(changeActiveTopic(input + 'search'));
@@ -37,6 +40,7 @@ const Header = () => {
         setShowSuggestion(false);
     };
 
+    // Function to handle suggestion click
     const handleSuggestionClick = (query) => {
         dispatch(changeActiveTopic(query + 'search'));
         navigate('/')
@@ -44,6 +48,7 @@ const Header = () => {
         setShowSuggestion(false);
     };
 
+    // Function to fetch suggestions
     const getSuggestions = async (query) => {
         const encodedQuery = encodeURIComponent(query);
         const apiUrl = `${SUGGESTION_API}${encodedQuery}`;
@@ -63,12 +68,14 @@ const Header = () => {
         };
     }, [input]);
 
+    // Function to handle input blur
     const handleInputBlur = () => {
         suggestionTimeout.current = setTimeout(() => {
             setShowSuggestion(false);
         }, 200);
     };
 
+    // Function to handle input focus
     const handleInputFocus = () => {
         clearTimeout(suggestionTimeout.current);
         setShowSuggestion(true);

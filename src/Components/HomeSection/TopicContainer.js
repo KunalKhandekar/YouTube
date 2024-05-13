@@ -3,18 +3,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useRef, useState } from 'react';
 
 const TopicContainer = () => {
+    // Redux hooks
     const dispatch = useDispatch();
+    const CapsuleTopics = useSelector(store => store.state.homeTopics);
+
+    // State and refs
     const [activeItem, setActiveItem] = useState(1);
     const containerRef = useRef(null);
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);
     const [scrollLeft, setScrollLeft] = useState(0);
 
+    // Handle item click
     const handleItemClick = (item, name) => {
         dispatch(changeActiveTopic(name))
         setActiveItem(item);
     };
 
+    // Handle mouse events for dragging
     const handleMouseDown = (e) => {
         setIsDragging(true);
         setStartX(e.pageX - containerRef.current.offsetLeft);
@@ -32,8 +38,6 @@ const TopicContainer = () => {
         setIsDragging(false);
     };
 
-    const CapsuleTopics = useSelector(store => store.state.homeTopics);
-
     return (
         <div
             ref={containerRef}
@@ -44,6 +48,7 @@ const TopicContainer = () => {
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
         >
+            {/* Render capsule topics */}
             {CapsuleTopics.slice(1).map((name, index) => (
                 <span
                     key={index}
@@ -53,7 +58,6 @@ const TopicContainer = () => {
                     {name}
                 </span>
             ))}
-
         </div>
     );
 };

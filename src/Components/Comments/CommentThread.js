@@ -1,4 +1,4 @@
-import { timeAgo, viewCountFunction } from '../../Utils/Functions';
+import { timeAgo, countFunction } from '../../Utils/Functions';
 import { AiOutlineDislike } from "react-icons/ai";
 import { IoIosArrowDown } from "react-icons/io";
 import { AiOutlineLike } from "react-icons/ai";
@@ -41,7 +41,7 @@ const CommentThread = ({ data }) => {
                 <p className='text-sm font-normal dark:text-white pt-0.5' dangerouslySetInnerHTML={{ __html: textDisplay }} ></p>
 
                 <div className='flex gap-2 py-2'>
-                    <p className='flex gap-0.5'><AiOutlineLike className='text-xl cursor-pointer' onClick={toastNotification} /> <span className='text-xs flex items-center'>{viewCountFunction(likeCount)}</span></p>
+                    <p className='flex gap-0.5'><AiOutlineLike className='text-xl cursor-pointer' onClick={toastNotification} /> <span className='text-xs flex items-center'>{countFunction(likeCount)}</span></p>
                     <AiOutlineDislike className='text-xl cursor-pointer' onClick={toastNotification} />
                     <div className={`${totalReplyCount >= 1 ? 'flex' : 'hidden'} text-sm gap-0.5 items-center text-blue-500 rounded-full cursor-pointer px-3 bg-[#cfcdcd3e] py-1`} onClick={() => setShowReplies(!showReplies)}>{!showReplies ? <IoIosArrowDown className='text-xl' /> : <IoIosArrowUp className='text-xl' />} <span>{!showReplies ? 'Show' : 'Hide'} Replies</span></div>
                 </div>

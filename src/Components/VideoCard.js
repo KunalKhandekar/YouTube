@@ -1,30 +1,34 @@
-import { formatDuration, timeAgo, viewCountFunction } from '../Utils/Functions';
-import placeholderImage from '../images/video-placeholder.png';
-import { closeSideBar } from '../Utils/Store/stateSlice';
 import React, { useEffect, useState } from 'react';
 import { YOUTUBE_API } from '../Utils/constants';
-import { useDispatch } from 'react-redux';
+import placeholderImage from '../images/video-placeholder.png';
+import { closeSideBar } from '../Utils/Store/stateSlice';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { formatDuration, timeAgo, countFunction } from '../Utils/Functions';
 
 const VideoCard = ({ video, horizontal }) => {
-    const dispatch = useDispatch();
+    // State variables to manage video details
     const [profile_pic, setProfile_Pic] = useState(null);
     const [viewCount, setViewCount] = useState('');
     const [duration, setDuration] = useState('');
     const [thumbnailLoaded, setThumbnailLoaded] = useState(false); // State to track whether thumbnail is loaded
+    const dispatch = useDispatch();
 
+    // Destructure necessary properties from video snippet
     const { thumbnails, channelId, title, channelTitle, publishedAt } = video?.snippet;
 
+    // Function to fetch profile picture of the channel
     const fetchProfilePic = async (id) => {
-        const data = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${id}&key=${YOUTUBE_API()}&hl=en`);
-        const json = await data.json();
-        setProfile_Pic(json.items[0].snippet.thumbnails.default.url || json.items[0].snippet.thumbnails.medium.url);
+        try {
+            const data = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${id}&key=${YOUTUBE_API()}&hl=en`);
+            const json = await data.json();
+            setProfile_Pic(json.items[0].snippet.thumbnails.default.url || json.items[0].snippet.thumbnails.medium.url);
+        } catch (error) {
+            console.error('Error fetching profile picture:', error);
+        }
     };
 
-    useEffect(() => {
-        fetchProfilePic(channelId);
-    }, [channelId]);
-
+    // Function to fetch video details including view count and duration
     useEffect(() => {
         const fetchTopicVideoDetails = async () => {
             try {
@@ -44,13 +48,16 @@ const VideoCard = ({ video, horizontal }) => {
             }
         };
 
+        fetchProfilePic(channelId);
         fetchTopicVideoDetails();
-    }, [video]);
+    }, [channelId, video]);
 
+    // Function to handle closing the sidebar
     const closeSideBarFunc = () => {
         dispatch(closeSideBar());
     };
 
+    // Function to handle thumbnail load event
     const handleThumbnailLoad = () => {
         setThumbnailLoaded(true); // Set thumbnailLoaded state to true when thumbnail is loaded
     };
@@ -80,14 +87,14 @@ const VideoCard = ({ video, horizontal }) => {
                     {/* Channel Name */}
                     <p className='text-sm text-neutral-600 font-normal dark:text-neutral-400 mmd:text-lg sm:text-xs ssm:hidden'>{channelTitle}</p>
                     <p className='text-sm text-neutral-600 font-normal dark:text-neutral-400 mmd:text-lg sm:text-xs ssm:hidden'>
-                        {viewCountFunction(viewCount)} • {timeAgo(publishedAt)}
+                        {countFunction(viewCount)} • {timeAgo(publishedAt)}
                     </p>
 
-                    <p className='hidden text-sm text-neutral-600 font-normal dark:text-neutral-400 mmd:text-lg sm:text-xs ssm:block pt-1'>{channelTitle} • {viewCountFunction(viewCount)} • {timeAgo(publishedAt)}</p>
+                    <p className='hidden text-sm text-neutral-600 font-normal dark:text-neutral-400 mmd:text-lg sm:text-xs ssm:block pt-1'>{channelTitle} • {countFunction(viewCount)} • {timeAgo(publishedAt)}</p>
                 </div>
             </div>
         </Link>
-    )
-}
+    );
+};
 
 export default VideoCard;

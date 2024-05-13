@@ -6,6 +6,7 @@ const VidoeSuggestion = ({ channelId, videoID }) => {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
+    // Function to fetch random popular videos
     const fetchRandomPopularVideos = async () => {
       try {
         const popularData = await fetch(`https://www.googleapis.com/youtube/v3/videos?key=${YOUTUBE_API()}&part=snippet&chart=mostPopular&maxResults=${12 - videos.length}`);
@@ -20,8 +21,10 @@ const VidoeSuggestion = ({ channelId, videoID }) => {
       }
     };
     
+    // Function to fetch channel details and related videos
     const fetchChannelDetails = async () => {
       try {
+        // Fetch video details
         const videoData = await fetch(`https://www.googleapis.com/youtube/v3/videos?key=${YOUTUBE_API()}&part=snippet&id=${videoID}`);
         if (!videoData.ok) {
           throw new Error('Failed to fetch video details');
@@ -29,6 +32,7 @@ const VidoeSuggestion = ({ channelId, videoID }) => {
         const videoJson = await videoData.json();
         const videoTitle = videoJson.items[0].snippet.title;
     
+        // Search for related videos based on video title
         const searchData = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API()}&part=snippet&type=video&videoDuration=long&q=${encodeURIComponent(videoTitle)}&maxResults=30`);
         if (!searchData.ok) {
           throw new Error('Failed to fetch search results');
@@ -50,16 +54,15 @@ const VidoeSuggestion = ({ channelId, videoID }) => {
         console.error('Error fetching channel details:', error);
       }
     };
-    
-    
 
+    // Fetch channel details and related videos if channelId is provided
     if (channelId) {
       fetchChannelDetails();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [channelId, videoID])
 
-  if (!videos) return;
+  if (!videos) return null;
 
   return (
     <div className='w-4/12 mmd:w-full dark:text-white'>

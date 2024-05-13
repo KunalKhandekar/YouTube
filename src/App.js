@@ -4,10 +4,10 @@ import Header from './Components/Header';
 import { useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
 import './App.css';
-import MainContainer from './Components/MainContainer';
-import WatchPage from './Pages/WatchPage';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import MainContainer from './Components/HomeSection/MainContainer';
+import WatchPage from './Pages/WatchPage';
 
 const App = () => {
   const darkMode = useSelector(store => store.state.darkMode);

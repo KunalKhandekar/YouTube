@@ -1,7 +1,7 @@
-import React from 'react';
-import { AiOutlineLike } from "react-icons/ai";
+import { timeAgo, viewCountFunction } from '../../Utils/Functions';
 import { AiOutlineDislike } from "react-icons/ai";
-import { timeAgo, viewCountFunction } from '../Utils/Functions';
+import { AiOutlineLike } from "react-icons/ai";
+import React from 'react';
 
 const Reply = ({ showReplies, toastNotification, data }) => {
 

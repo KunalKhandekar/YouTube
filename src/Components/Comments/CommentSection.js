@@ -1,7 +1,7 @@
+import { YOUTUBE_API } from '../../Utils/constants';
 import React, { useEffect, useState } from 'react';
-import CommentThread from './CommentThread';
-import { YOUTUBE_API } from '../Utils/constants';
 import { IoCloseOutline } from "react-icons/io5";
+import CommentThread from './CommentThread';
 
 const CommentSection = ({ videoID }) => {
     const [comments, setComments] = useState([]);

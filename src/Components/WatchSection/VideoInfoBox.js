@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { YOUTUBE_API } from '../Utils/constants';
+import { YOUTUBE_API } from '../../Utils/constants';
 import ChannelAndSubs from './ChannelAndSubs';
-import { viewCountFunction, timeAgo, renderClickableLinks } from '../Utils/Functions';
+import { viewCountFunction, timeAgo, renderClickableLinks } from '../../Utils/Functions';
 
 const VideoInfoBox = ({ Id }) => {
     const [channelDetails, setChannelDetails] = useState(null);

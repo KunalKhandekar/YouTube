@@ -2,17 +2,24 @@ export const API_Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiN
 
 function getRandomAPIKey() {
     const apiKeys = [
-        'AIzaSyDMAjY5eRc2lq3YGsnr_uJ-PDlc5TwCqkA'
+        'AIzaSyBiM4mVtA1F1rE-YWLj9wIbsITVa_s8DV4',
+        'AIzaSyB2dawIeXCPVMVRMGi9HP4P1K8jWFUFiGE',
+        'AIzaSyAMRmfswGign7NTgDXFHIfjMcfLHur2uRw',
+        'AIzaSyCqCjaawh784KtjxrRHT6jH-LiTmU0IfnQ',
+        'AIzaSyC0StHW4iIK78OrX6_4rLcIiQw6BoTvbs8',
+        'AIzaSyCzGiIoSEkOpR_QlrLh97f4CL_4bYZuk4Q',
+        'AIzaSyBs80dpOJtCdXOU64DVlm4IXA3hkoygTqY',
+        'AIzaSyAU5S1l4y-zN0LRwAD0BlB3l-J8_bsnGGI',
+        'AIzaSyCnxZN2N7kvafwwEOZH-JGyNOncKlBRS14',
+        'AIzaSyB2UBXz6N2q1PlOeYjcDsL61NEXaW_-4po',
+        'AIzaSyDrIk9wgDq41WHYxviD4JwWuK3G5-jDwyI',
+        'AIzaSyBmgldK8KNPdL_Benll13wDF5U4J6YcDSk',
+        // 'AIzaSyD3LGWALVqU_FqWYdghIgGwnyqu9onbraw', //66%
+        // 'AIzaSyDMAjY5eRc2lq3YGsnr_uJ-PDlc5TwCqkA', //90%
+        // 'AIzaSyBFCPK70dOHsmbaOFbAKQn9lh4aRWHV2eQ', //99%
     ];
     return apiKeys[Math.floor(Math.random() * apiKeys.length)];
-}
-
-// AIzaSyC0StHW4iIK78OrX6_4rLcIiQw6BoTvbs8 [expired]
-// AIzaSyBiM4mVtA1F1rE-YWLj9wIbsITVa_s8DV4 [expired]
-// AIzaSyB2dawIeXCPVMVRMGi9HP4P1K8jWFUFiGE [expired]
-// AIzaSyD3LGWALVqU_FqWYdghIgGwnyqu9onbraw [working] //
-// AIzaSyDMAjY5eRc2lq3YGsnr_uJ-PDlc5TwCqkA [working]
-// AIzaSyBFCPK70dOHsmbaOFbAKQn9lh4aRWHV2eQ [expired] //
+};
 
 export const YOUTUBE_API = getRandomAPIKey;
 
@@ -49,4 +56,23 @@ export const Channel_List = [
         link: 'https://yt3.googleusercontent.com/S3Ns5FT6e9n31Z9Cagf0j_xEc_QqZcvxuuxxvZED1N6fcs4R9XsG_XhY-6ETMseU3CDSD9CcoA=s176-c-k-c0x00ffffff-no-rj',
         id : 'UCx6F-rETGiz7xf_vkMmX2yQ'
     }
-]
+];
+
+
+const API = [
+    'AIzaSyDMAjY5eRc2lq3YGsnr_uJ-PDlc5TwCqkA', //90%
+    'AIzaSyBiM4mVtA1F1rE-YWLj9wIbsITVa_s8DV4',
+    'AIzaSyB2dawIeXCPVMVRMGi9HP4P1K8jWFUFiGE',
+    'AIzaSyD3LGWALVqU_FqWYdghIgGwnyqu9onbraw', //66%
+    'AIzaSyBFCPK70dOHsmbaOFbAKQn9lh4aRWHV2eQ', //99%
+    'AIzaSyAMRmfswGign7NTgDXFHIfjMcfLHur2uRw',
+    'AIzaSyCqCjaawh784KtjxrRHT6jH-LiTmU0IfnQ',
+    'AIzaSyC0StHW4iIK78OrX6_4rLcIiQw6BoTvbs8',
+    'AIzaSyCzGiIoSEkOpR_QlrLh97f4CL_4bYZuk4Q',
+    'AIzaSyBs80dpOJtCdXOU64DVlm4IXA3hkoygTqY',
+    'AIzaSyAU5S1l4y-zN0LRwAD0BlB3l-J8_bsnGGI',
+    'AIzaSyCnxZN2N7kvafwwEOZH-JGyNOncKlBRS14',
+    'AIzaSyB2UBXz6N2q1PlOeYjcDsL61NEXaW_-4po',
+    'AIzaSyDrIk9wgDq41WHYxviD4JwWuK3G5-jDwyI',
+    'AIzaSyBmgldK8KNPdL_Benll13wDF5U4J6YcDSk'
+];

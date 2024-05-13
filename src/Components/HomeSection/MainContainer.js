@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import VideoContainer from '../WatchSection/VideoContainer';
 import TopicContainer from './TopicContainer';
 import { useSelector } from 'react-redux';
-import VideoContainer from './VideoContainer';
+import React, { useEffect } from 'react';
 
 const MainContainer = () => {
   const CapsuleTopics = useSelector(store => store.state.homeTopics);

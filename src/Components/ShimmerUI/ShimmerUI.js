@@ -1,5 +1,4 @@
 import React from 'react';
-import placeHolder_Img from '../images/placeHolderThumbnail.png'; 
 
 const ShimmerUI = () => {
     return (

@@ -1,6 +1,6 @@
-import { useRef, useState } from 'react';
-import { changeActiveTopic } from '../Utils/Store/stateSlice';
+import { changeActiveTopic } from '../../Utils/Store/stateSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { useRef, useState } from 'react';
 
 const TopicContainer = () => {
     const dispatch = useDispatch();

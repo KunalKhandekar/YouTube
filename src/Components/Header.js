@@ -1,14 +1,14 @@
+import { changeActiveTopic, toggleDarkMode, toggleSideBar } from '../Utils/Store/stateSlice';
+import React, { useEffect, useRef, useState } from 'react';
 import YouTube_logo from '../images/youtubr-light.png';
-import YouTUbe_Dark from '../images/youtube-dark.png'
+import { useDispatch, useSelector } from 'react-redux';
+import YouTUbe_Dark from '../images/youtube-dark.png';
+import { SUGGESTION_API } from '../Utils/constants';
+import { Sun, Moon, Search } from 'react-feather';
 import { GiHamburgerMenu } from "react-icons/gi";
 import profile_Logo from '../images/profile.png';
-import { useDispatch, useSelector } from 'react-redux';
-import React, { useEffect, useRef, useState } from 'react';
-import { changeActiveTopic, toggleDarkMode, toggleSideBar } from '../Utils/Store/stateSlice';
-import { Sun, Moon, Search } from 'react-feather';
-import { SUGGESTION_API } from '../Utils/constants';
-import { IoIosSearch } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import { IoIosSearch } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
 
 const Header = () => {

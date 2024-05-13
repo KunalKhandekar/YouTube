@@ -1,10 +1,10 @@
+import WatchVideoContainer from '../Components/WatchSection/WatchVideoContainer';
+import VidoeSuggestion from '../Components/WatchSection/VidoeSuggestion';
+import VideoInfoBox from '../Components/WatchSection/VideoInfoBox';
+import CommentSection from '../Components/Comments/CommentSection';
+import LoadingScreen from '../Components/ShimmerUI/LoadingScreen';
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import WatchVideoContainer from '../Components/WatchVideoContainer';
-import VidoeSuggestion from '../Components/VidoeSuggestion';
-import VideoInfoBox from '../Components/VideoInfoBox';
-import LoadingScreen from '../Components/LoadingScreen'; // Import your loading screen component
-import CommentSection from '../Components/CommentSection';
 
 const WatchPage = () => {
   const [search] = useSearchParams();

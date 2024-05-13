@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import VideoCard from './VideoCard';
-import { YOUTUBE_API } from '../Utils/constants';
+import VideoCard from '../VideoCard';
+import { YOUTUBE_API } from '../../Utils/constants';
 import { useSelector } from 'react-redux';
 import ShimmerUI from './ShimmerUI';
 

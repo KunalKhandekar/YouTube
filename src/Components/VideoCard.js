@@ -1,10 +1,10 @@
+import { formatDuration, timeAgo, viewCountFunction } from '../Utils/Functions';
+import placeholderImage from '../images/video-placeholder.png';
+import { closeSideBar } from '../Utils/Store/stateSlice';
 import React, { useEffect, useState } from 'react';
 import { YOUTUBE_API } from '../Utils/constants';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { closeSideBar } from '../Utils/Store/stateSlice';
-import { formatDuration, timeAgo, viewCountFunction } from '../Utils/Functions';
-import placeholderImage from '../images/video-placeholder.png';
 
 const VideoCard = ({ video, horizontal }) => {
     const dispatch = useDispatch();

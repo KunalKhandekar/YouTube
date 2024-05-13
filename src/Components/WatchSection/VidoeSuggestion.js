@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { YOUTUBE_API } from '../Utils/constants';
-import VideoCard from './VideoCard';
+import { YOUTUBE_API } from '../../Utils/constants';
+import VideoCard from '../VideoCard';
 
 const VidoeSuggestion = ({ channelId, videoID }) => {
   const [videos, setVideos] = useState([]);

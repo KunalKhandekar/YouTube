@@ -3,7 +3,7 @@ import { AiOutlineLike } from "react-icons/ai";
 import { AiOutlineDislike } from "react-icons/ai";
 import { IoMdDownload } from "react-icons/io";
 import { PiShareFatBold } from "react-icons/pi";
-import { viewCountFunction } from '../Utils/Functions';
+import { viewCountFunction } from '../../Utils/Functions';
 import { toast } from 'react-toastify';
 
 const ChannelAndSubs = ({ profile, name, likes, subs }) => {

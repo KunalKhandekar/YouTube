@@ -1,20 +1,20 @@
-import { HiOutlineNewspaper } from "react-icons/hi2";
+import { changeActiveTopic, openSideBar, toggleSideBar } from '../Utils/Store/stateSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import { PiShoppingCartLight } from "react-icons/pi";
+import { HiOutlineNewspaper } from "react-icons/hi2";
 import { PiCertificateLight } from "react-icons/pi";
 import { GiBabyfootPlayers } from "react-icons/gi";
+import React, { useEffect, useState } from 'react';
 import { MdOutlinePodcasts } from "react-icons/md";
 import { PiFilmSlateLight } from "react-icons/pi";
+import { Channel_List } from '../Utils/constants';
 import { SiYoutubegaming } from "react-icons/si";
 import { IoIosTrendingUp } from "react-icons/io";
 import { IoHomeOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 import { CiMusicNote1 } from "react-icons/ci";
 import { RiLiveLine } from "react-icons/ri";
 import { GiClothes } from "react-icons/gi";
-import { useDispatch, useSelector } from 'react-redux';
-import React, { useEffect, useState } from 'react';
-import { changeActiveTopic, openSideBar, toggleSideBar } from '../Utils/Store/stateSlice';
-import { Channel_List } from '../Utils/constants';
-import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
     const navigate = useNavigate();

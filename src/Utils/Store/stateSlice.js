@@ -7,7 +7,8 @@ const stateSlice = createSlice({
         darkMode : true,
         activeTopic : 'Home',
         sideBarItem : 'Home',
-        homeTopics : ['Home', 'All', 'TMKOC', 'Motivation', 'Computer Programming', 'Music', 'Cricket', 'Politics', 'Animated Films', 'Movies', 'Study', 'Gaming', 'Sports']
+        homeTopics : ['Home', 'All', 'TMKOC', 'Motivation', 'Computer Programming', 'Music', 'Cricket', 'Politics', 'Animated Films', 'Movies', 'Study', 'Gaming', 'Sports'],
+        token : ''
     },
     reducers : {
         toggleSideBar : (state) => {
@@ -27,9 +28,13 @@ const stateSlice = createSlice({
         },
         changeSideBarItem : (state, action) => {
             state.sideBarItem = action.payload;
-        }
+        },
+        changeToken : (state, action) => {
+            state.token = action.payload;
+        },
+
     }
 });
 
-export const { toggleSideBar, openSideBar, closeSideBar, toggleDarkMode, changeActiveTopic, changeSideBarItem } = stateSlice.actions;
+export const { toggleSideBar, openSideBar, closeSideBar, toggleDarkMode, changeActiveTopic, changeSideBarItem, changeToken } = stateSlice.actions;
 export default stateSlice.reducer;

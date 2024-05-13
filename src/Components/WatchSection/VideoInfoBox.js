@@ -24,7 +24,7 @@ const VideoInfoBox = ({ Id }) => {
                 }
             } catch (error) {
                 console.error('Error fetching video details:', error);
-                // Consider adding user feedback for fetch failures
+                
             }
         };
 
@@ -43,7 +43,7 @@ const VideoInfoBox = ({ Id }) => {
                     setChannelDetails(json.items[0]);
                 } catch (error) {
                     console.error('Error fetching channel details:', error);
-                    // Consider adding user feedback for fetch failures
+                    
                 }
             };
             fetchChannelDetails();

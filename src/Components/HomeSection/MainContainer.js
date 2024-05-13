@@ -7,6 +7,7 @@ const MainContainer = () => {
   const CapsuleTopics = useSelector(store => store.state.homeTopics);
   const showSideBar = useSelector(store => store.state.showSideBar);
   const activeTopic = useSelector(store => store.state.activeTopic);
+  const token = useSelector(store => store.state.token);
 
   // Check if activeTopic is included in CapsuleTopics array
   const isTopicActive = CapsuleTopics.includes(activeTopic);
@@ -24,7 +25,7 @@ const MainContainer = () => {
   }, [activeTopic]);
   
   return (
-    <div className={`${showSideBar ? 'pl-[210px] sm:pl-0' : ''} pt-[65px] w-full transition-all duration-300 dark:bg-neutral-900 max-h-screen overflow-auto mmd:pb-10`}>
+    <div className={`${showSideBar ? 'pl-[210px] sm:pl-0' : ''} pt-[65px] w-full transition-all duration-300 dark:bg-neutral-900 min-h-screen overflow-auto mmd:pb-10`}>
 
       {/* Conditionally render TopicContainer if activeTopic is included in CapsuleTopics */}
       {isTopicActive && <TopicContainer />}

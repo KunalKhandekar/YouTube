@@ -29,7 +29,7 @@ const VidoeSuggestion = ({ channelId, videoID }) => {
         const videoJson = await videoData.json();
         const videoTitle = videoJson.items[0].snippet.title;
     
-        const searchData = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API()}&part=snippet&type=video&videoDuration=long&q=${encodeURIComponent(videoTitle)}&maxResults=12`);
+        const searchData = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API()}&part=snippet&type=video&videoDuration=long&q=${encodeURIComponent(videoTitle)}&maxResults=30`);
         if (!searchData.ok) {
           throw new Error('Failed to fetch search results');
         }
@@ -48,7 +48,6 @@ const VidoeSuggestion = ({ channelId, videoID }) => {
         }
       } catch (error) {
         console.error('Error fetching channel details:', error);
-        // Consider adding user feedback for fetch failures
       }
     };
     

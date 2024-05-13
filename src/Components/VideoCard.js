@@ -64,7 +64,7 @@ const VideoCard = ({ video, horizontal }) => {
 
                 <div className='w-[90%]'>
                     {/* Title */}
-                    <p className='line-clamp-2 text-base font-medium dark:text-white mmd:text-xl sm:text-sm'>{title}</p>
+                    <p className='line-clamp-2 text-base font-medium dark:text-white mmd:text-xl sm:text-sm' dangerouslySetInnerHTML={{ __html: title }}></p>
 
                     {/* Channel Name */}
                     <p className='text-sm text-neutral-600 font-normal dark:text-neutral-400 mmd:text-lg sm:text-xs ssm:hidden'>{channelTitle}</p>

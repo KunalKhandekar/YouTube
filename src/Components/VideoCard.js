@@ -4,14 +4,16 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { closeSideBar } from '../Utils/Store/stateSlice';
 import { formatDuration, timeAgo, viewCountFunction } from '../Utils/Functions';
-
+import placeholderImage from '../images/video-placeholder.png';
 
 const VideoCard = ({ video, horizontal }) => {
     const dispatch = useDispatch();
     const [profile_pic, setProfile_Pic] = useState(null);
-    const { thumbnails, channelId, title, channelTitle, publishedAt } = video?.snippet;
     const [viewCount, setViewCount] = useState('');
-    const [duration, setDuration] = useState('');    
+    const [duration, setDuration] = useState('');
+    const [thumbnailLoaded, setThumbnailLoaded] = useState(false); // State to track whether thumbnail is loaded
+
+    const { thumbnails, channelId, title, channelTitle, publishedAt } = video?.snippet;
 
     const fetchProfilePic = async (id) => {
         const data = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${id}&key=${YOUTUBE_API()}&hl=en`);
@@ -49,11 +51,20 @@ const VideoCard = ({ video, horizontal }) => {
         dispatch(closeSideBar());
     };
 
+    const handleThumbnailLoad = () => {
+        setThumbnailLoaded(true); // Set thumbnailLoaded state to true when thumbnail is loaded
+    };
+
     return (
         <Link to={`/watch?v=${video.id.videoId || video.id}&chnl=${channelId}`} className={`pb-4 sm:pb-3 ${horizontal ? 'flex gap-3 mmd:block' : ''}`} onClick={closeSideBarFunc}>
             <div className={`relative ${horizontal ? 'w-5/12 slg:w-8/12 mmd:w-full' : ''}`}>
-                <div className={`px-1.5 py-0.5 ${duration != 'P0D' ? 'bg-[#1c1c1cd4]' : 'bg-[#fc1d1dd4]'} text-white rounded text-xs font-medium absolute bottom-1.5 right-1.5`}>{formatDuration(duration)}</div>
-                <img src={(thumbnails && thumbnails.maxres && thumbnails.maxres.url) || (thumbnails && thumbnails.medium && thumbnails.medium.url)} alt="Video_Card" className='w-full h-full object-cover rounded-lg' />
+                <div className={`px-1.5 py-0.5 ${duration !== 'P0D' ? 'bg-[#1c1c1cd4]' : 'bg-[#fc1d1dd4]'} text-white rounded text-xs font-medium absolute bottom-1.5 right-1.5`}>{formatDuration(duration)}</div>
+                <img
+                    src={thumbnailLoaded ? (thumbnails && thumbnails.maxres && thumbnails.maxres.url) || (thumbnails && thumbnails.medium && thumbnails.medium.url) : placeholderImage}
+                    alt="Video_Card"
+                    className='w-full h-full object-cover rounded-lg'
+                    onLoad={handleThumbnailLoad} // Trigger handleThumbnailLoad when thumbnail is loaded
+                />
             </div>
 
             {/* Video Info */}

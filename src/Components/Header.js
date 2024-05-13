@@ -3,7 +3,6 @@ import YouTUbe_Dark from '../images/youtube-dark.png'
 import { GiHamburgerMenu } from "react-icons/gi";
 import profile_Logo from '../images/profile.png';
 import { useDispatch, useSelector } from 'react-redux';
-import { TbSearch } from "react-icons/tb";
 import React, { useEffect, useRef, useState } from 'react';
 import { changeActiveTopic, toggleDarkMode, toggleSideBar } from '../Utils/Store/stateSlice';
 import { Sun, Moon, Search } from 'react-feather';
@@ -90,7 +89,7 @@ const Header = () => {
                 </div>
 
                 <div className='w-[45%] m-auto relative'>
-                    {input != '' && suggestions && showSuggestion && (
+                    {input !== '' && suggestions && showSuggestion && (
                         <div className='w-[92%] absolute border border-neutral-300 dark:border-neutral-600 top-11 left-0 bg-neutral-100 dark:bg-neutral-900 text-[#000] dark:text-[#fff] py-1 rounded-2xl shadow-xl text-base'>
                             {suggestions.map(s => (
                                 <div
@@ -145,7 +144,7 @@ const Header = () => {
                     </div>
 
                     <div className='w-full m-auto relative'>
-                    {input != '' && suggestions && showSuggestion && (
+                    {input !== '' && suggestions && showSuggestion && (
                         <div className='w-full absolute border border-neutral-300 dark:border-neutral-600 top-11 left-0 bg-neutral-100 dark:bg-neutral-900 text-[#000] dark:text-[#fff] py-1 rounded-2xl shadow-xl text-base'>
                             {suggestions.map(s => (
                                 <div

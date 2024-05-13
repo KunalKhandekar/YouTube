@@ -16,6 +16,7 @@ const CommentSection = ({ videoID }) => {
 
     useEffect(() => {
         fetchComments();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [videoID]);
 
     const CommentToggler = () => {
@@ -35,7 +36,7 @@ const CommentSection = ({ videoID }) => {
 
                 <div className='flex gap-4 items-start py-2 pl-3 w-full'>
                     <div className='w-10'>
-                        <img src={comments[0]?.snippet?.topLevelComment?.snippet?.authorProfileImageUrl} alt="Channel_Logo" className='w-full rounded-full' />
+                        <img src={comments[0]?.snippet?.topLevelComment?.snippet?.authorProfileImageUrl} alt=" " className='w-full rounded-full' />
                     </div>
 
                     <div className='w-full line-clamp-2 text-sm' dangerouslySetInnerHTML={{ __html: comments[0]?.snippet?.topLevelComment?.snippet?.textDisplay }}></div>

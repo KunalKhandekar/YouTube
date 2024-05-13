@@ -57,6 +57,7 @@ const VidoeSuggestion = ({ channelId, videoID }) => {
     if (channelId) {
       fetchChannelDetails();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [channelId, videoID])
 
   if (!videos) return;

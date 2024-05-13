@@ -1,6 +1,6 @@
 
 
-# YouTube Video Viewer
+# YouTube Clone
 
 YouTube Video Viewer is a React application designed to provide users with a seamless experience for browsing and watching YouTube videos. With features like fetching video details, displaying video cards, and suggesting related videos, users can easily discover and enjoy content tailored to their interests.
 

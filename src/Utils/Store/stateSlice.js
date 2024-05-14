@@ -6,7 +6,7 @@ const stateSlice = createSlice({
     initialState: {
         // Initial state values
         showSideBar: false,
-        darkMode: true,
+        darkMode: null,
         activeTopic: 'Home',
         sideBarItem: 'Home',
         homeTopics: ['Home', 'All', 'TMKOC', 'Motivation', 'Computer Programming', 'Music', 'Cricket', 'Politics', 'Animated Films', 'Movies', 'Study', 'Gaming', 'Sports'],
@@ -27,8 +27,8 @@ const stateSlice = createSlice({
             state.showSideBar = false;
         },
         // Reducer function to toggle dark mode
-        toggleDarkMode: (state) => {
-            state.darkMode = !state.darkMode;
+        toggleDarkMode: (state, action) => {
+            state.darkMode = action.payload;
         },
         // Reducer function to change active topic
         changeActiveTopic: (state, action) => {

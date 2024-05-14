@@ -3,17 +3,29 @@ import { Outlet, createBrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Sidebar from './Components/Sidebar';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import WatchPage from './Pages/WatchPage';
 import Header from './Components/Header';
 import React, { useEffect } from 'react';
 import './App.css';
+import { toggleDarkMode } from './Utils/Store/stateSlice';
 
 const App = () => {
+  const dispatch = useDispatch();
   // Selecting darkMode state from Redux store
   const darkMode = useSelector(store => store.state.darkMode);
   // Selecting activeTopic state from Redux store
   const activeTopic = useSelector(store => store.state.activeTopic);
+
+
+  let darkMODE = localStorage.getItem('dark');
+  if (darkMODE === null || darkMODE === undefined) {
+    localStorage.setItem('dark', 1); // Set default value if 'dark' is not set
+    darkMODE = 1; // Assume dark mode by default
+  } else {
+    darkMODE = parseInt(darkMODE); // Convert to number
+  };
+  dispatch(toggleDarkMode(darkMODE === 1));
 
   useEffect(() => {
     // Smooth scrolling to top when activeTopic changes

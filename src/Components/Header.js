@@ -29,8 +29,11 @@ const Header = () => {
 
     // Function to toggle dark mode
     const handleMode = () => {
-        dispatch(toggleDarkMode());
-    };
+        const isDarkMode = localStorage.getItem('dark') === '1'; // Check if 'dark' is set to '1'
+        const newMode = !isDarkMode ? 1 : 0; // Toggle the mode
+        localStorage.setItem('dark', newMode); // Update the 'dark' value in local storage
+        dispatch(toggleDarkMode(newMode === 1)); // Dispatch action based on the new mode
+    };;
 
     // Function to handle search submission
     const handleSearch = (e) => {

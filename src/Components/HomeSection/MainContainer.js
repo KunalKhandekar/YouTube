@@ -25,7 +25,7 @@ const MainContainer = () => {
   }, [activeTopic]);
   
   return (
-    <div className={`${showSideBar ? 'pl-[210px] sm:pl-0' : ''} pt-[65px] w-full transition-all duration-300 dark:bg-neutral-900 min-h-screen overflow-auto mmd:pb-10`}>
+    <div className={`${showSideBar ? 'pl-[210px] sm:pl-0 sm:max-h-screen' : ''} pt-[65px] w-full transition-all duration-300 dark:bg-neutral-900 min-h-screen overflow-auto mmd:pb-10`}>
 
       {/* Conditionally render TopicContainer if activeTopic is included in CapsuleTopics */}
       {isTopicActive && <TopicContainer />}

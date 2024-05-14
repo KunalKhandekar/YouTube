@@ -1,7 +1,8 @@
 
 # YouTube Clone
 
-[![youtube-dark-7cf3282c2d794054d9b1.png](https://i.postimg.cc/CxnxJczz/youtube-dark-7cf3282c2d794054d9b1.png)](https://postimg.cc/3k7hxCjT)
+[![youtube-dark-7cf3282c2d794054d9b1.png](https://i.postimg.cc/B6SsWpQ5/youtube-dark-7cf3282c2d794054d9b1.png)](https://postimg.cc/HJhFXQMj)
+
 This project is a YouTube clone developed using React, Redux, and the YouTube Data API. It aims to replicate some of the core functionalities of the popular video-sharing platform YouTube.
 
 ## Features

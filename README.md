@@ -19,7 +19,6 @@ This project is a YouTube clone developed using React, Redux, and the YouTube Da
 
 ### 2. Topic Navigation
 ![Screenshot 2](https://i.postimg.cc/MZ4ktqRm/Screenshot2024-05-1421450.jpg)
-![Screenshot 2](https://i.postimg.cc/qBWYyQVm/Screenshot2024-05-1421443.jpg)
 
 - Users can navigate through different topics to explore related videos.
 - Topic containers dynamically load videos based on the selected topic.

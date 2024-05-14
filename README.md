@@ -1,6 +1,8 @@
 
 # YouTube Clone
 
+[!LOGO](https://youtube-clone-0.vercel.app/static/media/youtube-dark.7cf3282c2d794054d9b1.png)
+
 This project is a YouTube clone developed using React, Redux, and the YouTube Data API. It aims to replicate some of the core functionalities of the popular video-sharing platform YouTube.
 
 ## Features

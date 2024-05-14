@@ -24,7 +24,7 @@ This project is a YouTube clone developed using React, Redux, and the YouTube Da
 - Topics include popular videos, live videos, and user-defined topics.
 
 ### 3. Video Search
-![Screenshot 3](https://i.postimg.cc/y8tL98Sw/Screenshot-2024-05-14-214630.png)
+![Screenshot 3](https://i.postimg.cc/L4JwJw7Y/Screenshot2024-05-1421463.jpg)
 
 - Users can search for videos using the search bar.
 - Search results are displayed dynamically as the user types.

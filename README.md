@@ -1,70 +1,64 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# YouTube Clone
 
-In the project directory, you can run:
+YouTube Video Viewer is a React application designed to provide users with a seamless experience for browsing and watching YouTube videos. With features like fetching video details, displaying video cards, and suggesting related videos, users can easily discover and enjoy content tailored to their interests.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Video Card Display**: The application showcases video cards featuring thumbnails, titles, channel names, view counts, and published dates.
+- **Video Playback**: Users can watch videos directly within the application using the integrated ReactPlayer component.
+- **Channel Subscription**: Users can subscribe to channels directly from the video cards. [Functionality Not Added]
+- **Like, Download, and Share**: Users can interact with videos by liking, downloading, and sharing them. [Functionality Not Added]
+- **Responsive Design**: The application is designed to adapt to different screen sizes, providing a consistent experience across devices.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+- **React**: The frontend of the application is built using React, a popular JavaScript library for building user interfaces.
+- **Redux**: Redux is used for state management, allowing efficient management of application data.
+- **React Router**: React Router is used for client-side routing, enabling navigation between different views within the application.
+- **React Player**: React Player is integrated for seamless video playback within the application.
+- **YouTube Data API**: The application fetches video and channel data from the YouTube Data API to display relevant information to users.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Folder Structure
 
-### `npm run build`
+```
+YouTube-Video-Viewer/
+│
+├── public/             # Public assets and index.html
+│
+├── src/                # Source code directory
+│   ├── components/     # React components
+│   │   ├── VideoCard/      # Component for displaying video cards
+│   │   ├── VideoContainer/ # Component for video container
+│   │   ├── TopicContainer/ # Component for topic container
+│   │   ├── ChannelAndSubs/ # Component for channel details and subscriptions
+│   │   ├── VideoInfoBox/   # Component for displaying video information
+│   │   ├── VideoSuggestion/ # Component for suggesting related videos
+│   │   └── WatchVideoContainer/ # Component for watching videos
+│   │
+│   ├── Utils/          # Utility functions and constants
+│   │   ├── Functions.js    # Utility functions for formatting data
+│   │   ├── constants.js    # Constants such as API keys and endpoints
+│   │   └── Store/          # Redux store setup and slices
+│   │       └── stateSlice.js # Redux slice for managing application state
+│   │
+│   ├── images/         # Image assets
+│   │
+│   ├── App.css         # Global styles
+│   ├── App.js          # Main application component
+│   ├── index.css       # Styles for index.html
+│   └── index.js        # Entry point for the application
+│
+├── package.json        # Package configuration and dependencies
+├── README.md           # Project README file
+└── LICENSE             # License file
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Clone the repository: `git clone https://github.com/KunalKhandekar/YouTube.git`
+2. Navigate to the project directory: `cd YouTube-Video-Viewer`
+3. Install dependencies: `npm install`
+4. Start the development server: `npm start`
+5. Open your browser and navigate to `http://localhost:3000` to view the application.

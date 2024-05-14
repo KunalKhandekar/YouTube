@@ -34,7 +34,6 @@ This project is a YouTube clone developed using React, Redux, and the YouTube Da
 ![Screenshot 4](https://i.postimg.cc/PNGmJP74/Screenshot2024-05-1421431.jpg)
 
 - Subscribed channels are displayed with their subscriber count.
-- Users can interact with videos by liking, disliking, downloading, and sharing.
 - Like and dislike counts are displayed for each video.
 
 

@@ -1,4 +1,4 @@
-```markdown
+
 # YouTube Clone Project
 
 This project is a YouTube clone developed using React, Redux, and the YouTube Data API. It aims to replicate some of the core functionalities of the popular video-sharing platform YouTube.

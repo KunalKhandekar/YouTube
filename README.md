@@ -16,8 +16,8 @@ This project is a YouTube clone developed using React, Redux, and the YouTube Da
 
 
 ### 2. Topic Navigation
-![Screenshot 2](https://i.postimg.cc/qBWYyQVm/Screenshot2024-05-1421443.jpg)
 ![Screenshot 2](https://i.postimg.cc/bN6CyTYY/Screenshot-2024-05-14-214505.png)
+![Screenshot 2](https://i.postimg.cc/qBWYyQVm/Screenshot2024-05-1421443.jpg)
 
 - Users can navigate through different topics to explore related videos.
 - Topic containers dynamically load videos based on the selected topic.
@@ -31,7 +31,7 @@ This project is a YouTube clone developed using React, Redux, and the YouTube Da
 - Relevant videos are fetched from the YouTube API based on the search query
 
 ### 4. Like, Dislike, Download, and Share. (Not Functional)
-![Screenshot 4](https://i.postimg.cc/tg62zG37/Screenshot-2024-05-14-214317.png)
+![Screenshot 4](https://i.postimg.cc/PNGmJP74/Screenshot2024-05-1421431.jpg)
 
 - Subscribed channels are displayed with their subscriber count.
 - Users can interact with videos by liking, disliking, downloading, and sharing.

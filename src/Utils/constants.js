@@ -17,9 +17,9 @@ function getRandomAPIKey() {
         'AIzaSyB2UBXz6N2q1PlOeYjcDsL61NEXaW_-4po',
         'AIzaSyDrIk9wgDq41WHYxviD4JwWuK3G5-jDwyI',
         'AIzaSyBmgldK8KNPdL_Benll13wDF5U4J6YcDSk',
-        // 'AIzaSyD3LGWALVqU_FqWYdghIgGwnyqu9onbraw', //66%
-        // 'AIzaSyDMAjY5eRc2lq3YGsnr_uJ-PDlc5TwCqkA', //90%
-        // 'AIzaSyBFCPK70dOHsmbaOFbAKQn9lh4aRWHV2eQ', //99%
+        'AIzaSyD3LGWALVqU_FqWYdghIgGwnyqu9onbraw',
+        'AIzaSyDMAjY5eRc2lq3YGsnr_uJ-PDlc5TwCqkA',
+        'AIzaSyBFCPK70dOHsmbaOFbAKQn9lh4aRWHV2eQ',
     ];
     // Return a random API key from the list
     return apiKeys[Math.floor(Math.random() * apiKeys.length)];

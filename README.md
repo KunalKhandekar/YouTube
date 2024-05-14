@@ -5,7 +5,7 @@ This project is a YouTube clone developed using React, Redux, and the YouTube Da
 
 ## Features
 
-![ff81529468a3099bbbf78fcdfc54e9a9.jpeg](https://imgtr.ee/images/2024/05/14/ff81529468a3099bbbf78fcdfc54e9a9.jpeg)
+[![ff81529468a3099bbbf78fcdfc54e9a9.th.jpeg](https://imgtr.ee/images/2024/05/14/ff81529468a3099bbbf78fcdfc54e9a9.th.jpeg)](https://imgtr.ee/image/I6ms4T)
 
 ### 1. Video Viewing
 - Users can watch videos from various channels.

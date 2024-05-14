@@ -5,48 +5,51 @@ This project is a YouTube clone developed using React, Redux, and the YouTube Da
 
 ## Features
 
-![Screenshot 1](https://i.postimg.cc/Y0RXmN13/Screenshot-2024-05-14-214228.png)
 
 ### 1. Video Viewing
+![Screenshot 1](https://i.postimg.cc/Y0RXmN13/Screenshot-2024-05-14-214228.png)
+
 - Users can watch videos from various channels.
 - Video details such as title, channel name, view count, and publish date are displayed.
 - Video duration is shown on the thumbnail.
 - Thumbnail images are fetched from the YouTube API.
 
-![Screenshot 2](https://i.postimg.cc/bN6CyTYY/Screenshot-2024-05-14-214505.png)
-![Screenshot 2](https://i.postimg.cc/66fbSKDv/Screenshot-2024-05-14-214436.png)
 
 ### 2. Topic Navigation
+![Screenshot 2](https://i.postimg.cc/66fbSKDv/Screenshot-2024-05-14-214436.png)
+![Screenshot 2](https://i.postimg.cc/bN6CyTYY/Screenshot-2024-05-14-214505.png)
+
 - Users can navigate through different topics to explore related videos.
 - Topic containers dynamically load videos based on the selected topic.
 - Topics include popular videos, live videos, and user-defined topics.
 
-
+### 3. Video Search
 ![Screenshot 3](https://i.postimg.cc/y8tL98Sw/Screenshot-2024-05-14-214630.png)
 
-### 3. Video Search
 - Users can search for videos using the search bar.
 - Search results are displayed dynamically as the user types.
-- Relevant videos are fetched from the YouTube API based on the search query.
-
-![Screenshot 4](https://i.postimg.cc/tg62zG37/Screenshot-2024-05-14-214317.png)
+- Relevant videos are fetched from the YouTube API based on the search query
 
 ### 4. Like, Dislike, Download, and Share. (Not Functional)
+![Screenshot 4](https://i.postimg.cc/tg62zG37/Screenshot-2024-05-14-214317.png)
+
 - Subscribed channels are displayed with their subscriber count.
 - Users can interact with videos by liking, disliking, downloading, and sharing.
 - Like and dislike counts are displayed for each video.
 
-![Screenshot 5](https://i.postimg.cc/6pyHyvTr/Screenshot-2024-05-14-214725.png)
 
 ### 5. Video Suggestions
+![Screenshot 5](https://i.postimg.cc/6pyHyvTr/Screenshot-2024-05-14-214725.png)
+
 - Suggested videos are displayed based on the currently watched video.
 - Random popular videos are fetched to fill the suggestion list.
 - Suggestions are refreshed upon changing the video.
 
 
-![Screenshot 6](https://i.postimg.cc/SNQ1b5ht/Screenshot-2024-05-14-214354.png)
 
 ### 6. Comment Threads
+![Screenshot 6](https://i.postimg.cc/SNQ1b5ht/Screenshot-2024-05-14-214354.png)
+
 - Users can view and engage in comment threads associated with videos.
 - Comments are fetched from the YouTube API and displayed in a threaded format.
 

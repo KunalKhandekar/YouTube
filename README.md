@@ -54,6 +54,9 @@ This project is a YouTube clone developed using React, Redux, and the YouTube Da
 - Comments are fetched from the YouTube API and displayed in a threaded format.
 
 ### 7. Responsive Design
+
+![Screenshot 6](https://i.postimg.cc/8zHQDWJT/Be-Funky-collage.jpg)
+
 - The application is responsive and adjusts layout based on screen size.
 - Supports various devices including desktops, tablets, and mobile phones.
 
